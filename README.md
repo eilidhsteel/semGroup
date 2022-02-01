@@ -1,1 +1,1 @@
-READ ME for SEM group project
+# SEM Group B
