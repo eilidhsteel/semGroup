@@ -1,16 +1,21 @@
 package com.napier.sem;
 
-        import com.mongodb.MongoClient;
-        import com.mongodb.client.MongoDatabase;
-        import com.mongodb.client.MongoCollection;
-        import org.bson.Document;
+import com.mongodb.MongoClient;
+import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.MongoCollection;
+import org.bson.Document;
 
 public class App
 {
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args)
     {
         // Connect to MongoDB
-        MongoClient mongoClient = new MongoClient("mongo-dbserver");
+        MongoClient mongoClient = new MongoClient("localhost",27000
+        );
 
 
         // Get a database - will create when we use it
