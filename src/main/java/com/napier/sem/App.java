@@ -95,9 +95,16 @@ public class App
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT emp_no, first_name, last_name "
-                            + "FROM employees "
-                            + "WHERE emp_no = " + ID;
+                    "SELECT e.emp_no, e.first_name, e.last_name, t.title, s.salary, d.dept_name AS department, m.emp_no AS manager "
+                            + "FROM employees AS e "
+                            + "LEFT JOIN titles AS t ON e.emp_no = t.emp_no "
+                            + "LEFT JOIN salaries AS s ON e.emp_no = s.emp_no "
+                            + "LEFT JOIN dept_emp AS de ON e.emp_no = de.emp_no "
+                            + "LEFT JOIN departments AS d ON de.dept_no = d.dept_no "
+                            + "LEFT JOIN dept_manager AS dm ON d.dept_no = dm.dept_no "
+                            + "LEFT JOIN employees AS m ON dm.emp_no = m.emp_no "
+                            + "WHERE e.emp_no = " + ID;
+
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new employee if valid.
@@ -108,6 +115,10 @@ public class App
                 emp.emp_no = rset.getInt("emp_no");
                 emp.first_name = rset.getString("first_name");
                 emp.last_name = rset.getString("last_name");
+                emp.title = rset.getString("title");
+                emp.salary = rset.getInt("salary");
+                emp.dept_name = rset.getString("department");
+                emp.manager = rset.getString("manager");
                 return emp;
             }
             else
