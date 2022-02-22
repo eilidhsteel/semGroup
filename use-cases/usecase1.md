@@ -4,7 +4,7 @@
 
 ### Goal in Context
 
-As an *world health organisation* I want *to produce a reports on the countries in thw world, the continents of those countries and countries in a region organised by largest population to smallest. I want to produce reports on the countries in thw world, the continents of those countries and countries in a region based on the top N * so that *I can support population of the organisation.*
+As an *world health organisation* I want *to produce a reports on the countries in thw world, the continents of those countries and countries in a region organised by largest population to smallest. I want to produce reports on the countries in thw world, the continents of those countries and countries in a region based on the top N  where N is provided by the user* so that *I can support population of the organisation.*
 
 ### Scope
 
@@ -20,11 +20,11 @@ We know the role.  Database contains current population data.
 
 ### Success End Condition
 
-A report is available for world health organisation to provide to population information.
+Various reports are available for world health organisation to provide to information on countries.
 
 ### Failed End Condition
 
-No report is produced.
+No reports are produced.
 
 ### Primary Actor
 
