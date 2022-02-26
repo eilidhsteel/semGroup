@@ -1,4 +1,4 @@
-# USE CASE: As a world health organisation analyst, I want to produce reports by countries in the world about population so that I can support population reporting of the organisation
+# USE CASE: As a world health organisation analyst, I want to produce a report about languages spoken in the world so that I can support population reporting of the organisation
 
 ## CHARACTERISTIC INFORMATION
 
