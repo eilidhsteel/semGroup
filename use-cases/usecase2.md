@@ -35,6 +35,12 @@ The following reports are avaliable:
 * The top N populated cities in a country where N is provided by the user.
 * The top N populated cities in a district where N is provided by the user.
 
+Each report should contain the following fields:
+* Name
+* Country
+* District
+* Population
+
 ### Failed End Condition
 
 Any of the above reports are not produced.

@@ -1,13 +1,13 @@
-# USE CASE: As a world health organisation analyst, I want to produce a report by population of the cities of all the countries in the world about population so that I can support population reporting of the organisation
+# USE CASE: 4 Produce a suite of reports on population statistics.
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As an *world health organisation* I want *to produce a reports on the all the cities in thw world, cities in a continent,cities in a region,cities in a country and cities in a district organised by largest population to smallest. I want to produce reports on the countries in thw world, the continents of those countries and countries in a region based on the top N  where N is provided by the user* so that *I can support population of the organisation.*
+As a *World Health Organisation (WHO) analyst*, I want *to produce reports about the distribution of population around the world* so that *I can support the reporting of the organisation.*
 
 ### Scope
 
-Company.
+Organisation: WHO.
 
 ### Level
 
@@ -15,35 +15,52 @@ Primary task.
 
 ### Preconditions
 
-We know the role.  Database contains current population data.
+* Database contains population city data.
+* User provides the continent, region, country, or district to be reported on.
 
 ### Success End Condition
 
-Various reports are available for world health organisation to provide to information on cities.
+The following reports are avaliable:
+* The population of people, people living in cities, and people not living in cities in each continent.
+* The population of people, people living in cities, and people not living in cities in each region.
+* The population of people, people living in cities, and people not living in cities in each country.
+
+* The population of the world.
+* The population of a continent.
+* The population of a region.
+* The population of a country.
+* The population of a district.
+* The population of a city.
+
+Each report should contain the following fields:
+* The name of the continent/region/country.
+* The total population of the continent/region/country.
+* The total population of the continent/region/country living in cities (including a %).
+* The total population of the continent/region/country not living in cities (including a %).
 
 ### Failed End Condition
 
-No reports are produced.
+Any of the above reports are not produced.
 
 ### Primary Actor
 
-World health organisation analyst.
+WHO analyst.
 
 ### Trigger
 
-A request for population information is sent to world health organisation.
+WHO management requests the above reports for use in policy-making, and/or for release to the general public.
 
 ## MAIN SUCCESS SCENARIO
 
-1. World health organisation request countries information for a given roles.
-2. World health organisation analyst captures name of the roles to get different cities information.
-3. World health extracts current population information of all cities of the given roles.
-4. World health organisation analyst provides reports to world health organisation.
+1. Management makes a request for information to Data Analysis team.
+2. Analyst captures which reports are being requested and the continent, region, country, or district to be reported on.
+3. Analyst extracts requested report(s).
+4. Analyst provides report(s) to management.
 
 ## EXTENSIONS
 
-3. **Role does not exist**:
-    1. World health organisation analyst informs world health organisation no role exists.
+2. **The continent, region, country, or district provided does not exist**:
+   1. Analyst informs management that provided continent, region, country, or district does not exist.
 
 ## SUB-VARIATIONS
 

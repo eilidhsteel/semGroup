@@ -1,14 +1,14 @@
-# USE CASE: As a world health organisation analyst, I want to produce reports by capital city of all the countries in the world about population so that I can support population reporting of the organisation.
+# USE CASE: 5 Produce a suite of reports on capital cities in the world.
 
 ## CHARACTERISTIC INFORMATION
 
 ### Goal in Context
 
-As an *world health organisation* I want *to produce reports on capital cities in the world, a continent, and a region based on the top N where N is provided by the user* so that *I can support population of the organisation.*
+As a *World Health Organisation (WHO) analyst*, I want *to produce reports about capital cities, organised by population* so that *I can support the reporting of the organisation.*
 
 ### Scope
 
-Company.
+Organisation: WHO.
 
 ### Level
 
@@ -16,35 +16,52 @@ Primary task.
 
 ### Preconditions
 
-We know the role.  Database contains current population data.
+* Database contains current capital city data.
+* User provides the continent or region to be reported on.
+* User provides N; where N is number of records required in top N reports.
 
 ### Success End Condition
 
-Various report are available for world health organisation to provide information on cities.
+The following reports are avaliable:
+* All the capital cities in the world organised by largest population to smallest.
+* All the capital cities in a continent organised by largest population to smallest.
+* All the capital cities in a region organised by largest to smallest.
+* The top N populated capital cities in the world where N is provided by the user.
+* The top N populated capital cities in a continent where N is provided by the user.
+* The top N populated capital cities in a region where N is provided by the user.
+
+Each report should contain the following fields:
+* Name
+* Country
+* Population
 
 ### Failed End Condition
 
-No reports are produced.
+Any of the above reports are not produced.
 
 ### Primary Actor
 
-World health organisation analyst.
+WHO analyst.
 
 ### Trigger
 
-A request for population information is sent to world health organisation.
+WHO management requests the above reports for use in policy-making, and/or for release to the general public.
 
 ## MAIN SUCCESS SCENARIO
 
-1. World health organisation request cities information for a given roles.
-2. World health organisation analyst captures name of the roles to get cities information.
-3. World health extracts current population information of all cities of the given roles.
-4. World health organisation analyst provides reports to world health organisation.
+1. Management makes a request for information to Data Analysis team.
+2. Analyst captures which reports are being requested and the continent and/or region to be reported on.
+3. Analyst captures desired N; where N is number of records required in top N reports.
+4. Analyst extracts requested report(s).
+5. Analyst provides report(s) to management.
 
 ## EXTENSIONS
 
-3. **Role does not exist**:
-    1. World health organisation analyst informs world health organisation no role exists.
+2. **The continent and/or region provided does not exist**:
+   1. Analyst informs management that provided continent and/or region does not exist.
+3. **There are less than N cities within scope of report requested**:
+   1. Analyst extracts report with all avaliable cities
+   2. Analyst includes a note to inform management that there are less than N cities within the scope of the report.
 
 ## SUB-VARIATIONS
 
