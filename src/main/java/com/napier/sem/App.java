@@ -13,7 +13,7 @@ public class App {
         a.connect();
 
         ArrayList<City> test_cities = a.getAllPopulations();
-        a.printSalaries(test_cities);
+        a.printPopulation(test_cities);
 
         // Disconnect from database
         a.disconnect();
@@ -160,13 +160,21 @@ public class App {
      * Prints a list of cities.
      * @param cities The list of cities to print.
      */
-    public void printSalaries(ArrayList<City> cities)
+    public void printPopulation(ArrayList<City> cities)
     {
+        // Check cities is not null
+        if (cities == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
         // Print header
         System.out.println(String.format("%-20s %-20s %-25s %-10s", "City Name", "Country", "District", "Population"));
         // Loop over all cities in the list
         for (City city : cities)
         {
+            if (city == null)
+                continue;
             String city_string =
                     String.format("%-20s %-20s %-25s %-10s",
                             city.city_name, city.country, city.district, city.population);
