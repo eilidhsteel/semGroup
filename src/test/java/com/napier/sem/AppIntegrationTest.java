@@ -21,7 +21,7 @@ public class AppIntegrationTest
     }
 
     @Test
-    void testGetEmployee()
+    void testGetCity()
     {
         City city = app.getCity("Townsville");
         assertEquals(city.country, "AUS");
