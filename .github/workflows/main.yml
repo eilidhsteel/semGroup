@@ -1,6 +1,9 @@
 name: A workflow for World Reporting App
-on: push
-
+on:
+  push:
+    branches:
+      - master
+      - feature/integration-test
 jobs:
   UnitTests:
     name: Unit Tests
@@ -38,7 +41,14 @@ jobs:
           mvn -Dtest=com.napier.sem.AppIntegrationTest test
           docker stop world
           docker rm world
-          docker image rm database 
+          docker image rm database
+      - name: CodeCov
+        uses: codecov/codecov-action@v2
+        with:
+          # token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
+          directory: ./target/site/jacoco
+          flags: Integration Tests # optional
+          verbose: true # optional (default = false)
 
   build:
     name: Build and Start Using docker-compose
