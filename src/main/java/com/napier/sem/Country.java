@@ -13,7 +13,7 @@ public class Country {
     /**
      * Country's Name
      */
-    public String country_Name;
+    public String country_name;
 
     /**
      * Continent which the country is within
