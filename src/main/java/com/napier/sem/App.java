@@ -18,6 +18,9 @@ public class App {
         ArrayList<City> test_cities = a.getAllPopulations();
         a.printPopulation(test_cities);
 
+        ArrayList<Country> test_countries = a.getAllPopulationsCountry();
+        a.printPopulationCountry(test_countries);
+
         // Disconnect from database
         a.disconnect();
     }
