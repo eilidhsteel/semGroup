@@ -10,7 +10,7 @@ public class CountryLanguage{
     public String country_code;
 
     /**
-     * Language thatis spoken within a country
+     * Language that is spoken within a country
      */
     public String Language;
 
