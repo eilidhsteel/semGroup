@@ -18,6 +18,9 @@ public class App {
         ArrayList<City> test_cities = a.getAllPopulations();
         a.printPopulation(test_cities);
 
+        ArrayList<Country> test_countries = a.getAllPopulationsCountry();
+        a.printPopulationCountry(test_countries);
+
         // Disconnect from database
         a.disconnect();
     }
@@ -187,71 +190,129 @@ public class App {
             System.out.println(city_string);
         }
     }
-            public ArrayList<CountryLanguage> Language () ArrayList<CountryLanguage> language;
+
+    public Country getCountry(String name)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT c.Code, c.Name, c.Continent, c.Region, c.SurfaceArea, c.IndepYear, c.Population,c.LifeExpectancy, c.GNP, c.GNPOld, c.LocalName, c.GovernmentForm, c.HeadOfState, c.Capital, c.Code2 "
+                            + "FROM country AS c "
+                            + "WHERE c.Name = '" + name + "'";
+
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Return new city if valid.
+            // Check one is returned
+            if (rset.next())
             {
-
-                try {
-                    {
-                        //create sql statement
-                        Statement stmt = con.createStatement();
-                        //create string for SQL statement
-                        String strSelect =
-                                "SELECT countrylanguage.CountryLanguage, SUM(country.Population * countrylanguage.Percentage / 100) AS speakers, " +
-                                        "SUM(country.Population * countrylanguage.Percentage / 100) / " +
-                                        "(SELECT sum(Population)FROM country) * 100 AS percentage_speakers " +
-                                        " FROM country " +
-                                        " JOIN countrylanguage ON countrylanguage.CountryCode = country.Code " +
-                                        " WHERE countrylanguage.CountryLanguage IN ('Arabic', 'Chinese', 'English', 'Hindi', 'Spanish')" +
-                                        " GROUP BY countrylanguage.CountryLanguage" +
-                                        " ORDER BY speakers DESC;";
-
-                        // Execute SQL statement
-                        ResultSet rset = stmt.executeQuery(strSelect);
-                        // Extract employee information
-                        language = new ArrayList<>(CountryLanguage);
-                        while (rset.next()) {
-                            CountryLanguage cnt = new CountryLanguage();
-                            cnt.setCountryLanguage(rset.getString("countryLanguage.CountryLanguage"));
-                            cnt.setPopulation(rset.getLong("speakers"));
-                            cnt.setPercentage(rset.getFloat("percentage_speakers"));
-                            language.add(cnt);
-                        }
-                        return language;
-
-                    }
-                } catch (SQLException e) {
-                    System.out.println(e.getMessage());
-                    System.out.println("Failed to find language");
-                    return null;
-                }
+                Country country = new Country();
+                country.country_name = rset.getString("Name");
+                country.country_Code = rset.getString("Code");
+                country.continent = rset.getString("Continent");
+                country.region = rset.getString("Region");
+                country.surface_area = rset.getInt("SurfaceArea");
+                country.indep_Year = rset.getInt("IndepYear");
+                country.population = rset.getInt("Population");
+                country.life_Expectancy= rset.getInt("LifeExpectancy");
+                country.GNP = rset.getInt("GNP");
+                country.GNP_old = rset.getInt("GNPOld");
+                country.local_Name = rset.getString("LocalName");
+                country.government_form = rset.getString("GovernmentForm");
+                country.head_of_state = rset.getString("HeadOfState");
+                country.capital = rset.getString("Capital");
+                country.country_code2 = rset.getString("Code2");
+                return country;
             }
-
-            public void printLan(ArrayList < CountryLanguage > language);
-            {
-                // Check language is not null
-                if (language == null) {
-                    System.out.println("Languages null");
-                    return;
-                }
-
-                // Print header
-                System.out.println(String.format("%-20s %-20s %-20s", "language", "Population", "Percentage"));
-                // Loop over all languages in the list
-                for (CountryLanguage cnt : language) {
-                    if (cnt == null)
-                        continue;
-
-                    String cnt_string =
-                            String.format("%-20s %-20s %-25s %-10s",
-                                    cnt.getLanguage(), cnt.getPopulation(), cnt.getPercentage());
-                    System.out.println(cnt_string);
-                }
-            }
-
-
-        } catch (SQLException e) {
-            e.printStackTrace();
+            else
+                return null;
         }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get country details");
+            return null;
+        }
+    }
+
+    public void displayCountry(Country country)
+    {
+        if (country != null)
+        {
+            System.out.println(
+                    country.country_name + " "
+                            + country.continent + " "
+                            + country.region + "\n"
+                            + "Population: " + country.population + "\n");
+        }
+    }
+
+    /**
+     * Gets all the current countries and populations.
+     * @return A list of all countries and populations, or null if there is an error.
+     */
+    public ArrayList<Country> getAllPopulationsCountry()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT c.Name, c.continent, c.region, c.Population, c.Code "
+                            + "FROM country AS c "
+                            + "ORDER BY c.Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract employee information
+            ArrayList<Country> countries = new ArrayList<Country>();
+            while (rset.next())
+            {
+                Country country = new Country();
+                country.country_name = rset.getString("Name");
+                country.continent = rset.getString("Continent");
+                country.region = rset.getString("Region");
+                country.population = rset.getInt("Population");
+                countries.add(country);
+            }
+            return countries;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * Prints a list of cities.
+     * @param countries The list of cities to print.
+     */
+    public void printPopulationCountry(ArrayList<Country> countries)
+    {
+        // Check cities is not null
+        if (countries == null)
+        {
+            System.out.println("No countries");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-20s %-20s %-25s %-10s", "City Name", "Country", "District", "Population"));
+        // Loop over all cities in the list
+        for (Country country : countries)
+        {
+            if (country == null)
+                continue;
+            String country_string =
+                    String.format("%-20s %-20s %-25s %-10s",
+                            country.country_name, country.continent, country.region, country.population);
+            System.out.println(country_string);
+        }
+    }
 
 
-    }}
+}

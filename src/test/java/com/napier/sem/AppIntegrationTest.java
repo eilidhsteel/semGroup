@@ -28,4 +28,13 @@ public class AppIntegrationTest
         assertEquals(city.district, "Queensland");
         assertEquals(city.population, 109914);
     }
+
+    @Test
+    void testGetCountry()
+    {
+        Country country = app.getCountry("Aruba");
+        assertEquals(country.country_Code, "ABW");
+        assertEquals(country.region, "Caribbean");
+        assertEquals(country.population, 103000);
+    }
 }
