@@ -187,6 +187,71 @@ public class App {
             System.out.println(city_string);
         }
     }
+            public ArrayList<CountryLanguage> Language () ArrayList<CountryLanguage> language;
+            {
+
+                try {
+                    {
+                        //create sql statement
+                        Statement stmt = con.createStatement();
+                        //create string for SQL statement
+                        String strSelect =
+                                "SELECT countrylanguage.CountryLanguage, SUM(country.Population * countrylanguage.Percentage / 100) AS speakers, " +
+                                        "SUM(country.Population * countrylanguage.Percentage / 100) / " +
+                                        "(SELECT sum(Population)FROM country) * 100 AS percentage_speakers " +
+                                        " FROM country " +
+                                        " JOIN countrylanguage ON countrylanguage.CountryCode = country.Code " +
+                                        " WHERE countrylanguage.CountryLanguage IN ('Arabic', 'Chinese', 'English', 'Hindi', 'Spanish')" +
+                                        " GROUP BY countrylanguage.CountryLanguage" +
+                                        " ORDER BY speakers DESC;";
+
+                        // Execute SQL statement
+                        ResultSet rset = stmt.executeQuery(strSelect);
+                        // Extract employee information
+                        language = new ArrayList<>(CountryLanguage);
+                        while (rset.next()) {
+                            CountryLanguage cnt = new CountryLanguage();
+                            cnt.setCountryLanguage(rset.getString("countryLanguage.CountryLanguage"));
+                            cnt.setPopulation(rset.getLong("speakers"));
+                            cnt.setPercentage(rset.getFloat("percentage_speakers"));
+                            language.add(cnt);
+                        }
+                        return language;
+
+                    }
+                } catch (SQLException e) {
+                    System.out.println(e.getMessage());
+                    System.out.println("Failed to find language");
+                    return null;
+                }
+            }
+
+            public void printLan(ArrayList < CountryLanguage > language);
+            {
+                // Check language is not null
+                if (language == null) {
+                    System.out.println("Languages null");
+                    return;
+                }
+
+                // Print header
+                System.out.println(String.format("%-20s %-20s %-20s", "language", "Population", "Percentage"));
+                // Loop over all languages in the list
+                for (CountryLanguage cnt : language) {
+                    if (cnt == null)
+                        continue;
+
+                    String cnt_string =
+                            String.format("%-20s %-20s %-25s %-10s",
+                                    cnt.getLanguage(), cnt.getPopulation(), cnt.getPercentage());
+                    System.out.println(cnt_string);
+                }
+            }
 
 
-}
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }}
