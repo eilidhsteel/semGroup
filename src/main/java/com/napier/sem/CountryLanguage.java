@@ -15,12 +15,12 @@ public class CountryLanguage{
     public String Language;
 
     /**
-     * True or false value to represnt wether the language is the offical language of that country
+     * True or false value to represent whether the language is the official language of that country
      */
     public boolean is_offical;
 
     /**
-     * percentage of people taht speak a language in a country
+     * percentage of people that speak a language in a country
      */
     public float percentage;
 }
