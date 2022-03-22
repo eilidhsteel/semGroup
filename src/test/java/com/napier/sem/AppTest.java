@@ -53,7 +53,7 @@ public class AppTest
     }
 
     @Test
-    void printPopulationCounrtyTestNull()
+    void printPopulationCountryTestNull()
     {
         app.printPopulationCountry(null);
     }
