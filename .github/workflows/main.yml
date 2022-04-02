@@ -1,4 +1,4 @@
-name: A workflow for my population App
+name: A workflow for World Reporting App
 on:
   push:
     branches:
