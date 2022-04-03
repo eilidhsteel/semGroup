@@ -22,4 +22,14 @@ public class ReportSQL {
                 + "WHERE country.Continent = '" + continent + "' "
                 + "ORDER BY c.Population DESC";
     }
+    /**
+     * City 3: All the cities in a region organised by largest population to smallest.
+     */
+    public String city3(String region){
+        return "SELECT c.Name, c.District, c.Population, country.Name AS country "
+                + "FROM city AS c "
+                + "LEFT JOIN country ON c.CountryCode = country.Code "
+                + "WHERE country.Region = '" + region + "' "
+                + "ORDER BY c.Population DESC";
+    }
 }
