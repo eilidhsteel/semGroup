@@ -32,4 +32,24 @@ public class ReportSQL {
                 + "WHERE country.Region = '" + region + "' "
                 + "ORDER BY c.Population DESC";
     }
+    /**
+     * City 4: All the cities in a country organised by largest population to smallest.
+     */
+    public String city4(String country){
+        return "SELECT c.Name, c.District, c.Population, country.Name AS country "
+                + "FROM city AS c "
+                + "LEFT JOIN country ON c.CountryCode = country.Code "
+                + "WHERE country.Name = '" + country + "' "
+                + "ORDER BY c.Population DESC";
+    }
+    /**
+     * City 5: All the cities in a district organised by largest population to smallest.
+     */
+    public String city5(String district){
+        return "SELECT c.Name, c.District, c.Population, country.Name AS country "
+                + "FROM city AS c "
+                + "LEFT JOIN country ON c.CountryCode = country.Code "
+                + "WHERE c.District = '" + district + "' "
+                + "ORDER BY c.Population DESC";
+    }
 }
