@@ -8,6 +8,7 @@ public class App {
     public static void main(String[] args) {
         // Create new Application
         App a = new App();
+        ReportSQL sql = new ReportSQL();
 
         if(args.length < 1){
             a.connect("localhost:33060", 30000);
@@ -15,11 +16,11 @@ public class App {
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
-        ArrayList<City> test_cities = a.getAllPopulations();
+        ArrayList<City> test_cities = a.getAllPopulationsCity(sql.city1);
         a.printPopulation(test_cities);
 
-        ArrayList<Country> test_countries = a.getAllPopulationsCountry();
-        a.printPopulationCountry(test_countries);
+        //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
+        //a.printPopulationCountry(test_countries);
 
         // Disconnect from database
         a.disconnect();
@@ -142,6 +143,39 @@ public class App {
                             + "FROM city AS c "
                             + "LEFT JOIN country AS ct ON c.CountryCode = ct.Code "
                             + "ORDER BY c.Population DESC";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract employee information
+            ArrayList<City> cities = new ArrayList<City>();
+            while (rset.next())
+            {
+                City city = new City();
+                city.city_name = rset.getString("Name");
+                city.country = rset.getString("country");
+                city.district = rset.getString("District");
+                city.population = rset.getInt("Population");
+                cities.add(city);
+            }
+            return cities;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+
+    /**
+     * Gets all the current cities and populations.
+     * @return A list of all cities and populations based on SQL query provided for chosen report, or null if there is an error.
+     */
+    public ArrayList<City> getAllPopulationsCity(String strSelect)
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract employee information
