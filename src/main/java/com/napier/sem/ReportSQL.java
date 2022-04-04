@@ -62,4 +62,48 @@ public class ReportSQL {
                 + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
+    /**
+     * City 7: The top N populated cities in a continent where N is provided by the user.
+     */
+    public String city7(String continent, Integer n){
+        return "SELECT c.Name, c.District, c.Population, country.Name AS country "
+                + "FROM city AS c "
+                + "LEFT JOIN country ON c.CountryCode = country.Code "
+                + "WHERE country.Continent = '" + continent + "' "
+                + "ORDER BY c.Population DESC "
+                + "LIMIT " + n;
+    }
+    /**
+     * City 8: The top N populated cities in a region where N is provided by the user.
+     */
+    public String city8(String region, Integer n){
+        return "SELECT c.Name, c.District, c.Population, country.Name AS country "
+                + "FROM city AS c "
+                + "LEFT JOIN country ON c.CountryCode = country.Code "
+                + "WHERE country.Region = '" + region + "' "
+                + "ORDER BY c.Population DESC "
+                + "LIMIT " + n;
+    }
+    /**
+     * City 9: The top N populated cities in a country where N is provided by the user.
+     */
+    public String city9(String country, Integer n){
+        return "SELECT c.Name, c.District, c.Population, country.Name AS country "
+                + "FROM city AS c "
+                + "LEFT JOIN country ON c.CountryCode = country.Code "
+                + "WHERE country.Name = '" + country + "' "
+                + "ORDER BY c.Population DESC "
+                + "LIMIT " + n;
+    }
+    /**
+     * City 10: The top N populated cities in a district where N is provided by the user.
+     */
+    public String city10(String district, Integer n){
+        return "SELECT c.Name, c.District, c.Population, country.Name AS country "
+                + "FROM city AS c "
+                + "LEFT JOIN country ON c.CountryCode = country.Code "
+                + "WHERE c.District = '" + district + "' "
+                + "ORDER BY c.Population DESC "
+                + "LIMIT " + n;
+    }
 }
