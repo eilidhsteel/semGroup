@@ -21,14 +21,14 @@ public class AppTest
     @Test
     void printPopulationTestNull()
     {
-        app.printPopulation(null);
+        app.printPopulationCity(null);
     }
 
     @Test
     void printPopulationTestEmpty()
     {
         ArrayList<City> cities = new ArrayList<City>();
-        app.printPopulation(cities);
+        app.printPopulationCity(cities);
     }
 
     @Test
@@ -36,7 +36,7 @@ public class AppTest
     {
         ArrayList<City> cities = new ArrayList<City>();
         cities.add(null);
-        app.printPopulation(cities);
+        app.printPopulationCity(cities);
     }
 
     @Test
@@ -49,7 +49,7 @@ public class AppTest
         city.district = "Paraíba";
         city.population = 10;
         cities.add(city);
-        app.printPopulation(cities);
+        app.printPopulationCity(cities);
     }
 
     @Test

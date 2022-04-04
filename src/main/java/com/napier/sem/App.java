@@ -16,8 +16,8 @@ public class App {
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
-        ArrayList<City> test_cities = a.getAllPopulationsCity(sql.city10("England", 10));
-        a.printPopulation(test_cities);
+        ArrayList<City> test_cities = a.getAllPopulationsCity(sql.capital1);
+        a.printPopulationCapital(test_cities);
 
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
         //a.printPopulationCountry(test_countries);
@@ -164,7 +164,7 @@ public class App {
      * Prints a list of cities.
      * @param cities The list of cities to print.
      */
-    public void printPopulation(ArrayList<City> cities)
+    public void printPopulationCity(ArrayList<City> cities)
     {
         // Check cities is not null
         if (cities == null)
@@ -182,6 +182,31 @@ public class App {
             String city_string =
                     String.format("%-20s %-20s %-25s %-10s",
                             city.city_name, city.country, city.district, city.population);
+            System.out.println(city_string);
+        }
+    }
+    /**
+     * Prints a list of capital cities.
+     * @param capitals The list of capital cities to print.
+     */
+    public void printPopulationCapital(ArrayList<City> capitals)
+    {
+        // Check cities is not null
+        if (capitals == null)
+        {
+            System.out.println("No cities");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-20s %-20s %-10s", "City Name", "Country", "Population"));
+        // Loop over all capitals in the list
+        for (City city : capitals)
+        {
+            if (city == null)
+                continue;
+            String city_string =
+                    String.format("%-20s %-20s %-10s",
+                            city.city_name, city.country, city.population);
             System.out.println(city_string);
         }
     }

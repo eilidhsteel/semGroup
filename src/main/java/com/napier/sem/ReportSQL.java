@@ -106,4 +106,11 @@ public class ReportSQL {
                 + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
+    /**
+     * Capital 1: All the capital cities in the world organised by largest population to smallest.
+     */
+    public String capital1 = "SELECT city.Name, city.District, city.Population, country.Name AS country "
+            + "FROM country "
+            + "INNER JOIN city ON country.Capital = city.ID "
+            + "ORDER BY city.Population DESC";
 }
