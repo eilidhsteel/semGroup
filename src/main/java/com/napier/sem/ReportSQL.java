@@ -52,4 +52,14 @@ public class ReportSQL {
                 + "WHERE c.District = '" + district + "' "
                 + "ORDER BY c.Population DESC";
     }
+    /**
+     * City 6: The top N populated cities in the world where N is provided by the user.
+     */
+    public String city6(Integer n){
+        return "SELECT c.Name, c.District, c.Population, ct.Name AS country "
+                + "FROM city AS c "
+                + "LEFT JOIN country AS ct ON c.CountryCode = ct.Code "
+                + "ORDER BY c.Population DESC "
+                + "LIMIT " + n;
+    }
 }
