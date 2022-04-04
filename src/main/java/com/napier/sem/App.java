@@ -129,45 +129,6 @@ public class App {
 
     /**
      * Gets all the current cities and populations.
-     * @return A list of all cities and populations, or null if there is an error.
-     */
-    public ArrayList<City> getAllPopulations()
-    {
-        try
-        {
-            // Create an SQL statement
-            Statement stmt = con.createStatement();
-            // Create string for SQL statement
-            String strSelect =
-                    "SELECT c.Name, c.District, c.Population, ct.Name AS country "
-                            + "FROM city AS c "
-                            + "LEFT JOIN country AS ct ON c.CountryCode = ct.Code "
-                            + "ORDER BY c.Population DESC";
-            // Execute SQL statement
-            ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
-            ArrayList<City> cities = new ArrayList<City>();
-            while (rset.next())
-            {
-                City city = new City();
-                city.city_name = rset.getString("Name");
-                city.country = rset.getString("country");
-                city.district = rset.getString("District");
-                city.population = rset.getInt("Population");
-                cities.add(city);
-            }
-            return cities;
-        }
-        catch (Exception e)
-        {
-            System.out.println(e.getMessage());
-            System.out.println("Failed to get population details");
-            return null;
-        }
-    }
-
-    /**
-     * Gets all the current cities and populations.
      * @return A list of all cities and populations based on SQL query provided for chosen report, or null if there is an error.
      */
     public ArrayList<City> getAllPopulationsCity(String strSelect)
