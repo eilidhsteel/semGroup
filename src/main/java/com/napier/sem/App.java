@@ -16,7 +16,7 @@ public class App {
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
-        ArrayList<City> test_cities = a.getAllPopulationsCity(sql.capital1);
+        ArrayList<City> test_cities = a.getAllPopulationsCity(sql.capital6("Western Europe",5));
         a.printPopulationCapital(test_cities);
 
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();

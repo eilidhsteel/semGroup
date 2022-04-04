@@ -113,4 +113,57 @@ public class ReportSQL {
             + "FROM country "
             + "INNER JOIN city ON country.Capital = city.ID "
             + "ORDER BY city.Population DESC";
+
+    /**
+     * Capital 2: All the capital cities in a continent organised by largest population to smallest.
+     */
+    public String capital2(String continent){
+        return "SELECT city.Name, city.District, city.Population, country.Name AS country "
+                + "FROM country "
+                + "INNER JOIN city ON country.Capital = city.ID "
+                + "WHERE country.Continent = '" + continent + "' "
+                + "ORDER BY city.Population DESC";
+    }
+    /**
+     * Capital 3: All the capital cities in a region organised by largest to smallest.
+     */
+    public String capital3(String region){
+        return "SELECT city.Name, city.District, city.Population, country.Name AS country "
+                + "FROM country "
+                + "INNER JOIN city ON country.Capital = city.ID "
+                + "WHERE country.Region = '" + region + "' "
+                + "ORDER BY city.Population DESC";
+    }
+    /**
+     * Capital 4: The top N populated capital cities in the world where N is provided by the user.
+     */
+    public String capital4(Integer n){
+        return "SELECT city.Name, city.District, city.Population, country.Name AS country "
+                + "FROM country "
+                + "INNER JOIN city ON country.Capital = city.ID "
+                + "ORDER BY city.Population DESC "
+                + "LIMIT " + n;
+    }
+    /**
+     * Capital 5: The top N populated capital cities in a continent where N is provided by the user.
+     */
+    public String capital5(String continent, Integer n){
+        return "SELECT city.Name, city.District, city.Population, country.Name AS country "
+                + "FROM country "
+                + "INNER JOIN city ON country.Capital = city.ID "
+                + "WHERE country.Continent = '" + continent + "' "
+                + "ORDER BY city.Population DESC "
+                + "LIMIT " + n;
+    }
+    /**
+     * Capital 6: The top N populated capital cities in a region where N is provided by the user.
+     */
+    public String capital6(String region, Integer n){
+        return "SELECT city.Name, city.District, city.Population, country.Name AS country "
+                + "FROM country "
+                + "INNER JOIN city ON country.Capital = city.ID "
+                + "WHERE country.Region = '" + region + "' "
+                + "ORDER BY city.Population DESC "
+                + "LIMIT " + n;
+    }
 }
