@@ -173,7 +173,30 @@ public class ReportSQL {
     public String country2(String continent){
         return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
                 + "FROM country AS c "
+                + "WHERE country.Continent = '" + continent + "' "
                 + "ORDER BY c.Population DESC";
     }
+
+    /**
+     * Country 20: The top N populated countries in the world where N is provided by the user.
+     */
+    public String country20(Integer n){
+        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
+                + "FROM country "
+                + "ORDER BY country.Population DESC "
+                + "LIMIT " + n;
+    }
+
+    /**
+     * Country 22: The top N populated countries in a region where N is provided by the user.
+     */
+    public String country22(String region, Integer n){
+        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
+                + "FROM country "
+                + "WHERE country.Region = '" + region + "' "
+                + "ORDER BY country.Population DESC "
+                + "LIMIT " + n;
+    }
+
 
 }
