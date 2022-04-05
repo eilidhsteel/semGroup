@@ -208,7 +208,16 @@ public class ReportSQL {
                 + "WHERE country.region = '" + region + "' "
                 + "ORDER BY country.Population DESC ";
     }
-    
+    /**
+     * Country 20: The top N populated countries in the world where N is provided by the user.
+     */
+    public String country20(Integer n){
+        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
+                + "FROM country "
+                + "ORDER BY country.Population DESC "
+                + "LIMIT " + n;
+    }
+
     /**
      * Country 21: The top N populated countries in a continent where N is provided by the user.
      */
@@ -219,6 +228,33 @@ public class ReportSQL {
                 + "ORDER BY country.Population DESC "
                 + "LIMIT " + n;
     }
+    /**
+     * Country 22: The top N populated countries in a region where N is provided by the user.
+     */
+    public String country22(String region, Integer n){
+        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
+                + "FROM country "
+                + "WHERE country.Region = '" + region + "' "
+                + "ORDER BY country.Population DESC "
+                + "LIMIT " + n;
+    }
+
+    /**
+     * Population 23: The population of people, people living in cities, and people not living in cities in each continent.
+     */
+    public String population23(String continent){
+        return "SELECT ct.Continent AS Continent, SUM(ct.Population) AS Total_Pop, "
+                + "SUM(c.Population) AS InCity, "
+                + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
+                + "FROM country ct "
+                + "WHERE country.continent = '" + continent + "' "
+                + "JOIN (SELECT "
+                + "c.CountryCode "
+                + ",SUM(c.population) AS Population "
+                + "FROM city c GROUP BY 1) c ON c.CountryCode = ct.code "
+                + "GROUP BY Continent";
+    }
+
     /**
      * Population 24: The population of people, people living in cities, and people not living in cities in each region.
      */
@@ -234,6 +270,40 @@ public class ReportSQL {
                 + ",SUM(ci.population) AS Population "
                 + "FROM Region ci GROUP BY 1) ci ON ci.CountryCode = co.code "
                 + "GROUP BY Region";
+    }
+    /**
+     * Population 25: The population of people, people living in cities, and people not living in cities in each country.
+     */
+    public String population25(String country){
+        return "SELECT ct.Continent AS Continent, SUM(ct.Population) AS Total_Pop, "
+                + "SUM(c.Population) AS InCity, "
+                + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
+                + "FROM country ct "
+                + "WHERE country.Name = '" + country + "' "
+                + "JOIN (SELECT "
+                + "c.CountryCode "
+                + ",SUM(c.population) AS Population "
+                + "FROM city c GROUP BY 1) c ON c.CountryCode = ct.code "
+                + "GROUP BY Continent";
+    }
+
+    /**
+     * Population 26: The population of the world.
+     */
+    public String population26 =  "SELECT continent, SUM(population) AS Population "
+            + "FROM country c "
+            + "GROUP BY 1 "
+            + "ORDER BY Population DESC";
+
+    /**
+     * Population 27: The population of a continent.
+     */
+    public String population27(String continent){
+        return "SELECT continent, SUM(population) AS Population "
+                + "FROM country c "
+                + "WHERE country.continent = '" + continent + "' "
+                + "GROUP BY 1 "
+                + "ORDER BY Population DESC";
     }
 
     /**
@@ -267,4 +337,15 @@ public class ReportSQL {
                 + "GROUP BY 1 "
                 + "ORDER BY Population DESC";
     }
+    /**
+      * Population 31: The population of a city.
+     */
+    public String population31(String city){
+        return "SELECT Name, SUM(population) AS Population "
+                + "FROM city c "
+                + "WHERE city.Name = '" + city + "' "
+                + "GROUP BY 1 "
+                + "ORDER BY Population DESC";
+    }
+
 }
