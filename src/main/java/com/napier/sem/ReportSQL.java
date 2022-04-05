@@ -179,6 +179,7 @@ public class ReportSQL {
                 + "ORDER BY city.Population DESC "
                 + "LIMIT " + n;
     }
+
     /**
      * Country 17: All the countries in the world organised by largest population to smallest.
      */
@@ -188,12 +189,24 @@ public class ReportSQL {
                 + "ORDER BY country.Population DESC ";
 
     }
+
     /**
      * Country 19: All the countries in a region organised by largest population to smallest.
      */
     public String country19(String region) {
         return "SELECT country.code country.Name, country.District, country.Population"
                 + "FROM country "
+                + "WHERE country.region = '" + region + "' "
                 + "ORDER BY country.Population DESC ";
+    }
+    /**
+     * Country 21: The top N populated countries in a continent where N is provided by the user.
+     */
+    public String country21(String continent, Integer n){
+        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
+                + "FROM country "
+                + "WHERE country.continent = '" + continent+ "' "
+                + "ORDER BY country.Population DESC "
+                + "LIMIT " + n;
     }
 }
