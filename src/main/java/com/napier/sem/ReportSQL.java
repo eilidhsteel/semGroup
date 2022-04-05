@@ -241,9 +241,19 @@ public class ReportSQL {
      * Population 29: The population of a country.
      */
     public String population29(String country){
-        return "SELECT country, SUM(population) AS Population "
+        return "SELECT name, SUM(population) AS Population "
                 + "FROM country c "
                 + "WHERE country.Country = '" + country + "' "
+                + "GROUP BY 1 "
+                + "ORDER BY Population DESC";
+    }
+    /**
+     * Population 30: The population of a country.
+     */
+    public String population30(String district){
+        return "SELECT district, SUM(population) AS Population "
+                + "FROM country c "
+                + "WHERE city.district = '" + district + "' "
                 + "GROUP BY 1 "
                 + "ORDER BY Population DESC";
     }
