@@ -168,7 +168,7 @@ public class ReportSQL {
     }
 
     /**
-     * Country 2: All the countries in a continent organised by largest population to smallest.
+     * Country 18: All the countries in a continent organised by largest population to smallest.
      */
     public String country2(String continent){
         return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
