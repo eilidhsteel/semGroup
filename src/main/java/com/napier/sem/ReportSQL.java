@@ -248,7 +248,7 @@ public class ReportSQL {
                 + "ORDER BY Population DESC";
     }
     /**
-     * Population 30: The population of a country.
+     * Population 30: The population of a district.
      */
     public String population30(String district){
         return "SELECT district, SUM(population) AS Population "
