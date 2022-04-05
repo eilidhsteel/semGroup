@@ -227,7 +227,7 @@ public class ReportSQL {
     }
 
     /**
-     * Population 28: The population of a region.
+     * Population 28: The population of a region in order.
      */
     public String population28(String region){
         return "SELECT region, SUM(population) AS Population "
