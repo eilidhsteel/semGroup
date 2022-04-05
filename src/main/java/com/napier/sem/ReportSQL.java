@@ -236,4 +236,15 @@ public class ReportSQL {
                 + "GROUP BY 1 "
                 + "ORDER BY Population DESC";
     }
+
+    /**
+     * Population 29: The population of a country.
+     */
+    public String population29(String country){
+        return "SELECT country, SUM(population) AS Population "
+                + "FROM country c "
+                + "WHERE country.Country = '" + country + "' "
+                + "GROUP BY 1 "
+                + "ORDER BY Population DESC";
+    }
 }
