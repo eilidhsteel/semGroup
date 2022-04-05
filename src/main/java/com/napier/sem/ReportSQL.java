@@ -225,4 +225,15 @@ public class ReportSQL {
                 + "FROM Region ci GROUP BY 1) ci ON ci.CountryCode = co.code "
                 + "GROUP BY Region";
     }
+
+    /**
+     * Population 28: The population of a region.
+     */
+    public String population28(String region){
+        return "SELECT region, SUM(population) AS Population "
+                + "FROM country c "
+                + "WHERE country.region = '" + region + "' "
+                + "GROUP BY 1 "
+                + "ORDER BY Population DESC";
+    }
 }
