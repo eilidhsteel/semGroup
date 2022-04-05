@@ -189,6 +189,15 @@ public class ReportSQL {
                 + "ORDER BY country.Population DESC ";
 
     }
+    /**
+    * Country 18: All the countries in a continent organised by largest population to smallest.
+            */
+    public String country2(String continent){
+        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
+                + "FROM country AS c "
+                + "WHERE country.Continent = '" + continent + "' "
+                + "ORDER BY c.Population DESC";
+    }
 
     /**
      * Country 19: All the countries in a region organised by largest population to smallest.
@@ -199,6 +208,7 @@ public class ReportSQL {
                 + "WHERE country.region = '" + region + "' "
                 + "ORDER BY country.Population DESC ";
     }
+    
     /**
      * Country 21: The top N populated countries in a continent where N is provided by the user.
      */
