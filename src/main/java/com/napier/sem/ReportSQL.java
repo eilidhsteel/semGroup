@@ -186,6 +186,7 @@ public class ReportSQL {
         return "SELECT country.code country.Name, country.District, country.Population"
                 + "FROM country "
                 + "ORDER BY country.Population DESC ";
+
     }
     /**
      * Country 19: All the countries in a region organised by largest population to smallest.
