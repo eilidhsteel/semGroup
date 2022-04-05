@@ -8,64 +8,69 @@ public class ReportSQL {
      * City 1: All the cities in the world organised by largest population to smallest.
      */
     public String city1 = "SELECT c.Name, c.District, c.Population, ct.Name AS country "
-                                        + "FROM city AS c "
-                                        + "LEFT JOIN country AS ct ON c.CountryCode = ct.Code "
-                                        + "ORDER BY c.Population DESC";
+            + "FROM city AS c "
+            + "LEFT JOIN country AS ct ON c.CountryCode = ct.Code "
+            + "ORDER BY c.Population DESC";
 
     /**
      * City 2: All the cities in a continent organised by largest population to smallest.
      */
-    public String city2(String continent){
+    public String city2(String continent) {
         return "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
                 + "WHERE country.Continent = '" + continent + "' "
                 + "ORDER BY c.Population DESC";
     }
+
     /**
      * City 3: All the cities in a region organised by largest population to smallest.
      */
-    public String city3(String region){
+    public String city3(String region) {
         return "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
                 + "WHERE country.Region = '" + region + "' "
                 + "ORDER BY c.Population DESC";
     }
+
     /**
      * City 4: All the cities in a country organised by largest population to smallest.
      */
-    public String city4(String country){
+    public String city4(String country) {
         return "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
                 + "WHERE country.Name = '" + country + "' "
                 + "ORDER BY c.Population DESC";
     }
+
     /**
      * City 5: All the cities in a district organised by largest population to smallest.
      */
-    public String city5(String district){
+    public String city5(String district) {
         return "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
                 + "WHERE c.District = '" + district + "' "
                 + "ORDER BY c.Population DESC";
     }
+
     /**
      * City 6: The top N populated cities in the world where N is provided by the user.
      */
-    public String city6(Integer n){
+    public String city6(Integer n) {
         return "SELECT c.Name, c.District, c.Population, ct.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country AS ct ON c.CountryCode = ct.Code "
                 + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
+
     /**
      * City 7: The top N populated cities in a continent where N is provided by the user.
      */
-    public String city7(String continent, Integer n){
+    public String city7(String continent, Integer n) {
         return "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
@@ -73,10 +78,11 @@ public class ReportSQL {
                 + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
+
     /**
      * City 8: The top N populated cities in a region where N is provided by the user.
      */
-    public String city8(String region, Integer n){
+    public String city8(String region, Integer n) {
         return "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
@@ -84,10 +90,11 @@ public class ReportSQL {
                 + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
+
     /**
      * City 9: The top N populated cities in a country where N is provided by the user.
      */
-    public String city9(String country, Integer n){
+    public String city9(String country, Integer n) {
         return "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
@@ -95,10 +102,11 @@ public class ReportSQL {
                 + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
+
     /**
      * City 10: The top N populated cities in a district where N is provided by the user.
      */
-    public String city10(String district, Integer n){
+    public String city10(String district, Integer n) {
         return "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
@@ -106,6 +114,7 @@ public class ReportSQL {
                 + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
+
     /**
      * Capital 1: All the capital cities in the world organised by largest population to smallest.
      */
@@ -117,37 +126,40 @@ public class ReportSQL {
     /**
      * Capital 2: All the capital cities in a continent organised by largest population to smallest.
      */
-    public String capital2(String continent){
+    public String capital2(String continent) {
         return "SELECT city.Name, city.District, city.Population, country.Name AS country "
                 + "FROM country "
                 + "INNER JOIN city ON country.Capital = city.ID "
                 + "WHERE country.Continent = '" + continent + "' "
                 + "ORDER BY city.Population DESC";
     }
+
     /**
      * Capital 3: All the capital cities in a region organised by largest to smallest.
      */
-    public String capital3(String region){
+    public String capital3(String region) {
         return "SELECT city.Name, city.District, city.Population, country.Name AS country "
                 + "FROM country "
                 + "INNER JOIN city ON country.Capital = city.ID "
                 + "WHERE country.Region = '" + region + "' "
                 + "ORDER BY city.Population DESC";
     }
+
     /**
      * Capital 4: The top N populated capital cities in the world where N is provided by the user.
      */
-    public String capital4(Integer n){
+    public String capital4(Integer n) {
         return "SELECT city.Name, city.District, city.Population, country.Name AS country "
                 + "FROM country "
                 + "INNER JOIN city ON country.Capital = city.ID "
                 + "ORDER BY city.Population DESC "
                 + "LIMIT " + n;
     }
+
     /**
      * Capital 5: The top N populated capital cities in a continent where N is provided by the user.
      */
-    public String capital5(String continent, Integer n){
+    public String capital5(String continent, Integer n) {
         return "SELECT city.Name, city.District, city.Population, country.Name AS country "
                 + "FROM country "
                 + "INNER JOIN city ON country.Capital = city.ID "
@@ -155,15 +167,22 @@ public class ReportSQL {
                 + "ORDER BY city.Population DESC "
                 + "LIMIT " + n;
     }
+
     /**
      * Capital 6: The top N populated capital cities in a region where N is provided by the user.
      */
-    public String capital6(String region, Integer n){
+    public String capital6(String region, Integer n) {
         return "SELECT city.Name, city.District, city.Population, country.Name AS country "
                 + "FROM country "
                 + "INNER JOIN city ON country.Capital = city.ID "
                 + "WHERE country.Region = '" + region + "' "
                 + "ORDER BY city.Population DESC "
                 + "LIMIT " + n;
+    }
+
+    public String country17(Integer n) {
+        return "SELECT country.code country.Name, country.District, country.Population"
+                + "FROM country "
+                + "ORDER BY country.Population DESC ";
     }
 }
