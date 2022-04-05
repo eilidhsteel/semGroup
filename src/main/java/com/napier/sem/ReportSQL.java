@@ -209,4 +209,20 @@ public class ReportSQL {
                 + "ORDER BY country.Population DESC "
                 + "LIMIT " + n;
     }
+    /**
+     * Population 24: The population of people, people living in cities, and people not living in cities in each region.
+     */
+
+    public String population24(String region, Integer n){
+        return "SELECT co.Region AS Region, SUM(co.Population) AS Total_Pop, "
+                + "SUM(ci.Population) AS InCity, "
+                + "SUM(co.Population)  - SUM(ci.Population) AS OutCity "
+                + "FROM country co "
+                + "WHERE country.Region = '" + region + "' "
+                + "JOIN (SELECT "
+                + "ci.CountryCode "
+                + ",SUM(ci.population) AS Population "
+                + "FROM Region ci GROUP BY 1) ci ON ci.CountryCode = co.code "
+                + "GROUP BY Region";
+    }
 }
