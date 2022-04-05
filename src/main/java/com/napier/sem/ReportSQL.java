@@ -179,8 +179,18 @@ public class ReportSQL {
                 + "ORDER BY city.Population DESC "
                 + "LIMIT " + n;
     }
-
+    /**
+     * Country 17: All the countries in the world organised by largest population to smallest.
+     */
     public String country17(Integer n) {
+        return "SELECT country.code country.Name, country.District, country.Population"
+                + "FROM country "
+                + "ORDER BY country.Population DESC ";
+    }
+    /**
+     * Country 19: All the countries in a region organised by largest population to smallest.
+     */
+    public String country19(String region) {
         return "SELECT country.code country.Name, country.District, country.Population"
                 + "FROM country "
                 + "ORDER BY country.Population DESC ";
