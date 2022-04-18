@@ -8,16 +8,35 @@ public class App {
     public static void main(String[] args) {
         // Create new Application
         App a = new App();
+        // Create queries used for reporting
         ReportSQL sql = new ReportSQL();
 
+        // Connect to world database
         if(args.length < 1){
             a.connect("localhost:33060", 30000);
         }else{
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
-        ArrayList<City> test_cities = a.getAllPopulationsCity(sql.capital6("Western Europe",5));
-        a.printPopulationCapital(test_cities);
+        // Print all city reports to the console
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city1)); // City Report 1
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city2("Europe"))); // City Report 2
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city3("Western Europe"))); // City Report 3
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city4("United Kingdom"))); // City Report 4
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city5("Scotland"))); // City Report 5
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city6(10))); // City Report 6
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city7("Europe", 10))); // City Report 7
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city8("Western Europe", 10))); // City Report 8
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city9("United Kingdom", 10))); // City Report 9
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city10("Scotland", 10))); // City Report 10
+
+        // Print all capital city reports to the console
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital1)); //Capital report 1
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital2("Europe"))); // Capital report 2
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital3("Western Europe"))); // Capital report 3
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital4(5))); // Capital report 4
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital5("Europe", 5))); // Capital report 5
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6
 
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
         //a.printPopulationCountry(test_countries);
@@ -139,7 +158,7 @@ public class App {
             Statement stmt = con.createStatement();
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract city information
             ArrayList<City> cities = new ArrayList<City>();
             while (rset.next())
             {
@@ -184,6 +203,7 @@ public class App {
                             city.city_name, city.country, city.district, city.population);
             System.out.println(city_string);
         }
+        System.out.println();
     }
     /**
      * Prints a list of capital cities.
@@ -209,6 +229,7 @@ public class App {
                             city.city_name, city.country, city.population);
             System.out.println(city_string);
         }
+        System.out.println();
     }
 
     public Country getCountry(String name)

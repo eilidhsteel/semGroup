@@ -181,16 +181,16 @@ public class ReportSQL {
     }
 
     /**
-     * Country 17: All the countries in the world organised by largest population to smallest.
+     * Country 1: All the countries in the world organised by largest population to smallest.
      */
-    public String country17(Integer n) {
+    public String country1(Integer n) {
         return "SELECT country.code country.Name, country.District, country.Population"
                 + "FROM country "
                 + "ORDER BY country.Population DESC ";
 
     }
     /**
-    * Country 18: All the countries in a continent organised by largest population to smallest.
+    * Country 2: All the countries in a continent organised by largest population to smallest.
             */
     public String country2(String continent){
         return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
@@ -200,18 +200,18 @@ public class ReportSQL {
     }
 
     /**
-     * Country 19: All the countries in a region organised by largest population to smallest.
+     * Country 3: All the countries in a region organised by largest population to smallest.
      */
-    public String country19(String region) {
+    public String country3(String region) {
         return "SELECT country.code country.Name, country.District, country.Population"
                 + "FROM country "
                 + "WHERE country.region = '" + region + "' "
                 + "ORDER BY country.Population DESC ";
     }
     /**
-     * Country 20: The top N populated countries in the world where N is provided by the user.
+     * Country 4: The top N populated countries in the world where N is provided by the user.
      */
-    public String country20(Integer n){
+    public String country4(Integer n){
         return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
                 + "FROM country "
                 + "ORDER BY country.Population DESC "
@@ -219,9 +219,9 @@ public class ReportSQL {
     }
 
     /**
-     * Country 21: The top N populated countries in a continent where N is provided by the user.
+     * Country 5: The top N populated countries in a continent where N is provided by the user.
      */
-    public String country21(String continent, Integer n){
+    public String country5(String continent, Integer n){
         return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
                 + "FROM country "
                 + "WHERE country.continent = '" + continent+ "' "
@@ -229,9 +229,9 @@ public class ReportSQL {
                 + "LIMIT " + n;
     }
     /**
-     * Country 22: The top N populated countries in a region where N is provided by the user.
+     * Country 6: The top N populated countries in a region where N is provided by the user.
      */
-    public String country22(String region, Integer n){
+    public String country6(String region, Integer n){
         return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
                 + "FROM country "
                 + "WHERE country.Region = '" + region + "' "
@@ -240,9 +240,9 @@ public class ReportSQL {
     }
 
     /**
-     * Population 23: The population of people, people living in cities, and people not living in cities in each continent.
+     * Population 1: The population of people, people living in cities, and people not living in cities in each continent.
      */
-    public String population23(String continent){
+    public String population1(String continent){
         return "SELECT ct.Continent AS Continent, SUM(ct.Population) AS Total_Pop, "
                 + "SUM(c.Population) AS InCity, "
                 + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
@@ -256,10 +256,10 @@ public class ReportSQL {
     }
 
     /**
-     * Population 24: The population of people, people living in cities, and people not living in cities in each region.
+     * Population 2: The population of people, people living in cities, and people not living in cities in each region.
      */
 
-    public String population24(String region, Integer n){
+    public String population2(String region, Integer n){
         return "SELECT co.Region AS Region, SUM(co.Population) AS Total_Pop, "
                 + "SUM(ci.Population) AS InCity, "
                 + "SUM(co.Population)  - SUM(ci.Population) AS OutCity "
@@ -272,9 +272,9 @@ public class ReportSQL {
                 + "GROUP BY Region";
     }
     /**
-     * Population 25: The population of people, people living in cities, and people not living in cities in each country.
+     * Population 3: The population of people, people living in cities, and people not living in cities in each country.
      */
-    public String population25(String country){
+    public String population3(String country){
         return "SELECT ct.Continent AS Continent, SUM(ct.Population) AS Total_Pop, "
                 + "SUM(c.Population) AS InCity, "
                 + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
@@ -288,17 +288,17 @@ public class ReportSQL {
     }
 
     /**
-     * Population 26: The population of the world.
+     * Population 4: The population of the world.
      */
-    public String population26 =  "SELECT continent, SUM(population) AS Population "
+    public String population4 =  "SELECT continent, SUM(population) AS Population "
             + "FROM country c "
             + "GROUP BY 1 "
             + "ORDER BY Population DESC";
 
     /**
-     * Population 27: The population of a continent.
+     * Population 5: The population of a continent.
      */
-    public String population27(String continent){
+    public String population5(String continent){
         return "SELECT continent, SUM(population) AS Population "
                 + "FROM country c "
                 + "WHERE country.continent = '" + continent + "' "
@@ -307,9 +307,9 @@ public class ReportSQL {
     }
 
     /**
-     * Population 28: The population of a region.
+     * Population 6: The population of a region.
      */
-    public String population28(String region){
+    public String population6(String region){
         return "SELECT region, SUM(population) AS Population "
                 + "FROM country c "
                 + "WHERE country.region = '" + region + "' "
@@ -318,9 +318,9 @@ public class ReportSQL {
     }
 
     /**
-     * Population 29: The population of a country in order.
+     * Population 7: The population of a country in order.
      */
-    public String population29(String country){
+    public String population7(String country){
         return "SELECT name, SUM(population) AS Population "
                 + "FROM country c "
                 + "WHERE country.Country = '" + country + "' "
@@ -328,9 +328,9 @@ public class ReportSQL {
                 + "ORDER BY Population DESC";
     }
     /**
-     * Population 30: The population of a district.
+     * Population 8: The population of a district.
      */
-    public String population30(String district){
+    public String population8(String district){
         return "SELECT district, SUM(population) AS Population "
                 + "FROM country c "
                 + "WHERE city.district = '" + district + "' "
@@ -338,9 +338,9 @@ public class ReportSQL {
                 + "ORDER BY Population DESC";
     }
     /**
-      * Population 31: The population of a city.
+      * Population 9: The population of a city.
      */
-    public String population31(String city){
+    public String population9(String city){
         return "SELECT Name, SUM(population) AS Population "
                 + "FROM city c "
                 + "WHERE city.Name = '" + city + "' "
