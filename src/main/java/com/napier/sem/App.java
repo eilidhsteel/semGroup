@@ -19,27 +19,30 @@ public class App {
         }
 
         // Print all city reports to the console
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city1)); // City Report 1
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city2("Europe"))); // City Report 2
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city3("Western Europe"))); // City Report 3
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city4("United Kingdom"))); // City Report 4
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city5("Scotland"))); // City Report 5
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city6(10))); // City Report 6
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city7("Europe", 10))); // City Report 7
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city8("Western Europe", 10))); // City Report 8
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city9("United Kingdom", 10))); // City Report 9
-        a.printPopulationCity(a.getAllPopulationsCity(sql.city10("Scotland", 10))); // City Report 10
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city1)); // City Report 1
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city2("Europe"))); // City Report 2
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city3("Western Europe"))); // City Report 3
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city4("United Kingdom"))); // City Report 4
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city5("Scotland"))); // City Report 5
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city6(10))); // City Report 6
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city7("Europe", 10))); // City Report 7
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city8("Western Europe", 10))); // City Report 8
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city9("United Kingdom", 10))); // City Report 9
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city10("Scotland", 10))); // City Report 10
 
         // Print all capital city reports to the console
-        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital1)); //Capital report 1
-        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital2("Europe"))); // Capital report 2
-        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital3("Western Europe"))); // Capital report 3
-        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital4(5))); // Capital report 4
-        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital5("Europe", 5))); // Capital report 5
-        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital1)); //Capital report 1
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital2("Europe"))); // Capital report 2
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital3("Western Europe"))); // Capital report 3
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital4(5))); // Capital report 4
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital5("Europe", 5))); // Capital report 5
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6
 
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
         //a.printPopulationCountry(test_countries);
+
+        ArrayList<CountryLanguage> test_lang = a.getAllSpeakers();
+        a.printLanguageSpeakers(test_lang);
 
         // Disconnect from database
         a.disconnect();
@@ -360,6 +363,74 @@ public class App {
                     String.format("%-20s %-20s %-25s %-10s",
                             country.country_name, country.continent, country.region, country.population);
             System.out.println(country_string);
+        }
+    }
+
+    /**
+     * Gets all langauges and the number of speakers that speak them.
+     * @return A list of all languages and the population that speak them, or null if there is an error.
+     */
+    public ArrayList<CountryLanguage> getAllSpeakers()
+    {
+        try
+        {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            String strSelect =
+                    "SELECT Language, SUM(Speakers) as Speakers "
+                            + "FROM "
+                            + "(SELECT countrylanguage.language AS Language, (country.population * countrylanguage.percentage /100) as Speakers "
+                            + "FROM countrylanguage "
+                            + "LEFT JOIN country "
+                            + "ON countrylanguage.countrycode = country.code "
+                            + ") AS a "
+                            + "GROUP BY Language "
+                            + "ORDER BY Speakers DESC "
+                            + "LIMIT 5";
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract employee information
+            ArrayList<CountryLanguage> languages = new ArrayList<CountryLanguage>();
+            while (rset.next())
+            {
+                CountryLanguage language = new CountryLanguage();
+                language.language = rset.getString("Language");
+                language.speakers = rset.getInt("Speakers");
+                languages.add(language);
+            }
+            return languages;
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
+    /**
+     * Prints a list of cities.
+     * @param languages The list of cities to print.
+     */
+    public void printLanguageSpeakers(ArrayList<CountryLanguage> languages)
+    {
+        // Check languages is not null
+        if (languages == null)
+        {
+            System.out.println("No languages");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-20s %-20s", "Language", "Speakers"));
+        // Loop over all cities in the list
+        for (CountryLanguage language : languages)
+        {
+            if (language == null)
+                continue;
+            String language_string =
+                    String.format("%-20s %-20s",
+                            language.language, language.speakers);
+            System.out.println(language_string);
         }
     }
 

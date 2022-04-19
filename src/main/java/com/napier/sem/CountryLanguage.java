@@ -12,15 +12,17 @@ public class CountryLanguage{
     /**
      * Language that is spoken within a country
      */
-    public String Language;
+    public String language;
 
     /**
      * True or false value to represent whether the language is the official language of that country
      */
-    public boolean is_offical;
+    //public boolean is_offical;
 
     /**
      * percentage of people that speak a language in a country
      */
     public float percentage;
+
+    public int speakers;
 }
