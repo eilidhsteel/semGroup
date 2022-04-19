@@ -11,13 +11,14 @@ package com.napier.sem;
 public class AppIntegrationTest
 {
     static App app;
+    static ReportSQL sql;
 
     @BeforeAll
     static void init()
     {
         app = new App();
         app.connect("localhost:33060", 30000);
-
+        sql = new ReportSQL();
     }
 
     @Test
@@ -27,6 +28,20 @@ public class AppIntegrationTest
         assertEquals(city.country, "AUS");
         assertEquals(city.district, "Queensland");
         assertEquals(city.population, 109914);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestNull()
+    {
+        ArrayList cities = app.getAllPopulationsCity(null);
+        assertEquals(cities, null);
+    }
+
+    @Test
+    void GetAllPopulationsCityTest()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city1);
+        assertEquals(cities.size(), 4079);
     }
 
     @Test
