@@ -8,6 +8,8 @@
 ![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/eilidhsteel/semGroup/A%20workflow%20for%20my%20Hello%20World%20App/develop) <br />
 [![codecov](https://codecov.io/gh/eilidhsteel/semGroup/branch/master/graph/badge.svg?token=8QLQN8HV4K)](https://codecov.io/gh/eilidhsteel/semGroup) <br />
 
+__ requirements of 32 have been implemented, which is ___%.
+
 | ID | Name                                                                                                                                   | Met | Screenshot |
 |----|----------------------------------------------------------------------------------------------------------------------------------------|-----|------------|
 | 1  | All the countries in the world organised by largest population to smallest.                                                            |     |            |
@@ -41,4 +43,4 @@
 | 29 | The population of a country.                                                                                                           |     |            |
 | 30 | The population of a district.                                                                                                          |     |            |
 | 31 | The population of a city.                                                                                                              |     |            |
-| 32 | the number of people who speak the listed languages from greatest number to smallest, including the percentage of the world population |     |            |
+| 32 | The number of people who speak the listed languages from greatest number to smallest, including the percentage of the world population |     |            |
