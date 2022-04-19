@@ -134,6 +134,9 @@ public class App {
         }
     }
 
+    /**
+     * Prints the details of a city object to the console.
+     */
     public void displayCity(City city)
     {
         if (city != null)

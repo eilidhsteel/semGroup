@@ -19,6 +19,30 @@ public class AppTest
     }
 
     @Test
+    void displayCityTestNull()
+    {
+        app.displayCity(null);
+    }
+
+    @Test
+    void displayCityTestNoDetails()
+    {
+        City city = new City();
+        app.displayCity(city);
+    }
+
+    @Test
+    void displayCity()
+    {
+        City city = new City();
+        city.city_name = "London";
+        city.country = "United Kingdom";
+        city.district = "England";
+        city.population = 100;
+        app.displayCity(city);
+    }
+
+    @Test
     void printPopulationCityTestNull()
     {
         app.printPopulationCity(null);
