@@ -19,20 +19,20 @@ public class AppTest
     }
 
     @Test
-    void printPopulationTestNull()
+    void printPopulationCityTestNull()
     {
         app.printPopulationCity(null);
     }
 
     @Test
-    void printPopulationTestEmpty()
+    void printPopulationCityTestEmpty()
     {
         ArrayList<City> cities = new ArrayList<City>();
         app.printPopulationCity(cities);
     }
 
     @Test
-    void printPopulationTestContainsNull()
+    void printPopulationCityTestContainsNull()
     {
         ArrayList<City> cities = new ArrayList<City>();
         cities.add(null);
@@ -40,16 +40,50 @@ public class AppTest
     }
 
     @Test
-    void printPopulation()
+    void printPopulationCity()
     {
         ArrayList<City> cities = new ArrayList<City>();
         City city = new City();
-        city.city_name = "Santa Rita";
+        city.city_name = "London";
         city.country = "United Kingdom";
-        city.district = "Paraíba";
-        city.population = 10;
+        city.district = "England";
+        city.population = 100;
         cities.add(city);
         app.printPopulationCity(cities);
+    }
+
+    @Test
+    void printPopulationCapitalTestNull()
+    {
+        app.printPopulationCapital(null);
+    }
+
+    @Test
+    void printPopulationCapitalTestEmpty()
+    {
+        ArrayList<City> capitals = new ArrayList<City>();
+        app.printPopulationCapital(capitals);
+    }
+
+    @Test
+    void printPopulationCapitalTestContainsNull()
+    {
+        ArrayList<City> capitals = new ArrayList<City>();
+        capitals.add(null);
+        app.printPopulationCapital(capitals);
+    }
+
+    @Test
+    void printPopulationCapital()
+    {
+        ArrayList<City> capitals = new ArrayList<City>();
+        City city = new City();
+        city.city_name = "London";
+        city.country = "United Kingdom";
+        city.district = "England";
+        city.population = 100;
+        capitals.add(city);
+        app.printPopulationCity(capitals);
     }
 
     @Test
