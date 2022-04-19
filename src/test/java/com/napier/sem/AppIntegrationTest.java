@@ -73,17 +73,94 @@ public class AppIntegrationTest
     }
 
     @Test
-    void GetAllPopulationsCityTestCity3Null()
+    void GetAllPopulationsCityTestCity4()
     {
-        ArrayList cities = app.getAllPopulationsCity(sql.city3(null));
-        assertEquals(cities, null);
+        ArrayList cities = app.getAllPopulationsCity(sql.city4("United Kingdom"));
+        assertEquals(cities.size(), 81);
     }
 
     @Test
-    void GetAllPopulationsCityTestCity3Nonsense()
+    void GetAllPopulationsCityTestCity5()
     {
-        ArrayList cities = app.getAllPopulationsCity(sql.city3("Narnia"));
-        assertEquals(cities, null);
+        ArrayList cities = app.getAllPopulationsCity(sql.city5("Scotland"));
+        assertEquals(cities.size(), 4);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity6()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city6(10));
+        assertEquals(cities.size(), 10);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity7()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city7("Europe", 10));
+        assertEquals(cities.size(), 10);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity8()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city8("Western Europe", 10));
+        assertEquals(cities.size(), 10);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity9()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city9("United Kingdom", 10));
+        assertEquals(cities.size(), 10);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity10()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city10("Scotland", 10));
+        assertEquals(cities.size(), 4);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCapital1()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.capital1);
+        assertEquals(cities.size(), 232);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCapital2()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.capital2("Europe"));
+        assertEquals(cities.size(), 46);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCapital3()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.capital3("Western Europe"));
+        assertEquals(cities.size(), 9);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCapital4()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.capital4(10));
+        assertEquals(cities.size(), 10);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCapital5()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.capital5("Europe", 10));
+        assertEquals(cities.size(), 10);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCapital6()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.capital6("Western Europe", 10));
+        assertEquals(cities.size(), 9);
     }
 
     @Test
