@@ -16,7 +16,7 @@ public class ReportSQL {
      * City 2: All the cities in a continent organised by largest population to smallest.
      */
     public String city2(String continent) {
-        return "SELECT c.Name, c.District, c.Population, country.Name AS country "
+        return  "SELECT c.Name, c.District, c.Population, country.Name AS country "
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
                 + "WHERE country.Continent = '" + continent + "' "

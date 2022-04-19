@@ -169,7 +169,12 @@ public class App {
                 city.population = rset.getInt("Population");
                 cities.add(city);
             }
-            return cities;
+            if (cities.isEmpty()){
+                return null;
+            }
+            else {
+                return cities;
+            }
         }
         catch (Exception e)
         {

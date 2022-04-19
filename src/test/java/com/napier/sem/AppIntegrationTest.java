@@ -38,10 +38,31 @@ public class AppIntegrationTest
     }
 
     @Test
-    void GetAllPopulationsCityTest()
+    void GetAllPopulationsCityTestCity1()
     {
         ArrayList cities = app.getAllPopulationsCity(sql.city1);
         assertEquals(cities.size(), 4079);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity2()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city2("Europe"));
+        assertEquals(cities.size(), 841);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity2Null()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city2(null));
+        assertEquals(cities, null);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity2Nonsense()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city2("Narnia"));
+        assertEquals(cities, null);
     }
 
     @Test
