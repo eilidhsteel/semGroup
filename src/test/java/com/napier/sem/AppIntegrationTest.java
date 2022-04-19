@@ -66,6 +66,27 @@ public class AppIntegrationTest
     }
 
     @Test
+    void GetAllPopulationsCityTestCity3()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city3("Western Europe"));
+        assertEquals(cities.size(), 186);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity3Null()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city3(null));
+        assertEquals(cities, null);
+    }
+
+    @Test
+    void GetAllPopulationsCityTestCity3Nonsense()
+    {
+        ArrayList cities = app.getAllPopulationsCity(sql.city3("Narnia"));
+        assertEquals(cities, null);
+    }
+
+    @Test
     void testGetCountry()
     {
         Country country = app.getCountry("Aruba");
