@@ -41,7 +41,7 @@ public class App {
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
         //a.printPopulationCountry(test_countries);
 
-        ArrayList<CountryLanguage> test_lang = a.getAllSpeakers();
+        ArrayList<Language> test_lang = a.getAllSpeakers();
         a.printLanguageSpeakers(test_lang);
 
         // Disconnect from database
@@ -370,7 +370,7 @@ public class App {
      * Gets all langauges and the number of speakers that speak them.
      * @return A list of all languages and the population that speak them, or null if there is an error.
      */
-    public ArrayList<CountryLanguage> getAllSpeakers()
+    public ArrayList<Language> getAllSpeakers()
     {
         try
         {
@@ -378,7 +378,7 @@ public class App {
             Statement stmt = con.createStatement();
             // Create string for SQL statement
             String strSelect =
-                    "SELECT Language, SUM(Speakers) as Speakers "
+                    "SELECT Language, SUM(Speakers) as Speakers, ROUND((SUM(Speakers)/(SELECT SUM(population) FROM country)*100), 2) AS Percentage "
                             + "FROM "
                             + "(SELECT countrylanguage.language AS Language, (country.population * countrylanguage.percentage /100) as Speakers "
                             + "FROM countrylanguage "
@@ -391,12 +391,13 @@ public class App {
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract employee information
-            ArrayList<CountryLanguage> languages = new ArrayList<CountryLanguage>();
+            ArrayList<Language> languages = new ArrayList<Language>();
             while (rset.next())
             {
-                CountryLanguage language = new CountryLanguage();
+                Language language = new Language();
                 language.language = rset.getString("Language");
                 language.speakers = rset.getInt("Speakers");
+                language.percentage = rset.getFloat("Percentage");
                 languages.add(language);
             }
             return languages;
@@ -412,7 +413,7 @@ public class App {
      * Prints a list of cities.
      * @param languages The list of cities to print.
      */
-    public void printLanguageSpeakers(ArrayList<CountryLanguage> languages)
+    public void printLanguageSpeakers(ArrayList<Language> languages)
     {
         // Check languages is not null
         if (languages == null)
@@ -421,15 +422,15 @@ public class App {
             return;
         }
         // Print header
-        System.out.println(String.format("%-20s %-20s", "Language", "Speakers"));
+        System.out.println(String.format("%-20s %-20s %-20s", "Language", "Speakers", "Percentage of World Population"));
         // Loop over all cities in the list
-        for (CountryLanguage language : languages)
+        for (Language language : languages)
         {
             if (language == null)
                 continue;
             String language_string =
-                    String.format("%-20s %-20s",
-                            language.language, language.speakers);
+                    String.format("%-20s %-20s %-20s",
+                            language.language, language.speakers, language.percentage);
             System.out.println(language_string);
         }
     }
