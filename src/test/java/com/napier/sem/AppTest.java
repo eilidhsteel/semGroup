@@ -154,4 +154,37 @@ public class AppTest
         countries.add(country);
         app.printPopulationCountry(countries);
     }
+
+    @Test
+    void printSpeakersTestNull()
+    {
+        app.printLanguageSpeakers(null);
+    }
+
+    @Test
+    void printSpeakersTestEmpty()
+    {
+        ArrayList<Language> languages = new ArrayList<Language>();
+        app.printLanguageSpeakers(languages);
+    }
+
+    @Test
+    void printSpeakersTestContainsNull()
+    {
+        ArrayList<Language> languages = new ArrayList<Language>();
+        languages.add(null);
+        app.printLanguageSpeakers(languages);
+    }
+
+    @Test
+    void printSpeakers()
+    {
+        ArrayList<Language> languages = new ArrayList<Language>();
+        Language language = new Language();
+        language.language = "English";
+        language.speakers = 347077867;
+        language.percentage = 6;
+        languages.add(language);
+        app.printLanguageSpeakers(languages);
+    }
 }
