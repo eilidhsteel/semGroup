@@ -171,4 +171,11 @@ public class AppIntegrationTest
         assertEquals(country.region, "Caribbean");
         assertEquals(country.population, 103000);
     }
+
+    @Test
+    void GetAllSpeakersTest()
+    {
+        ArrayList languages = app.getAllSpeakers();
+        assertEquals(languages.size(), 5);
+    }
 }
