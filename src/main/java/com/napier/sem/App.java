@@ -19,30 +19,30 @@ public class App {
         }
 
         // Print all city reports to the console
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city1)); // City Report 1
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city2("Europe"))); // City Report 2
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city3("Western Europe"))); // City Report 3
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city4("United Kingdom"))); // City Report 4
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city5("Scotland"))); // City Report 5
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city6(10))); // City Report 6
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city7("Europe", 10))); // City Report 7
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city8("Western Europe", 10))); // City Report 8
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city9("United Kingdom", 10))); // City Report 9
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city10("Scotland", 10))); // City Report 10
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city1)); // City Report 1 - requirement 7
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city2("Europe"))); // City Report 2 - requirement 8
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city3("Western Europe"))); // City Report 3 - requirement 9
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city4("United Kingdom"))); // City Report 4 - requirement 10
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city5("Scotland"))); // City Report 5 - requirement 11
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city6(10))); // City Report 6 - requirement 12
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city7("Europe", 10))); // City Report 7 - requirement 13
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city8("Western Europe", 10))); // City Report 8 - requirement 14
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city9("United Kingdom", 10))); // City Report 9 - requirement 15
+        //a.printPopulationCity(a.getAllPopulationsCity(sql.city10("Scotland", 10))); // City Report 10 - requirement 16
 
         // Print all capital city reports to the console
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital1)); //Capital report 1
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital2("Europe"))); // Capital report 2
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital3("Western Europe"))); // Capital report 3
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital4(5))); // Capital report 4
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital5("Europe", 5))); // Capital report 5
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital1)); //Capital report 1 - requirement 17
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital2("Europe"))); // Capital report 2 - requirement 18
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital3("Western Europe"))); // Capital report 3 - requirement 19
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital4(5))); // Capital report 4 - requirement 20
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital5("Europe", 5))); // Capital report 5 - requirement 21
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6 - requirement 22
 
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
         //a.printPopulationCountry(test_countries);
 
-        ArrayList<Language> test_lang = a.getAllSpeakers();
-        a.printLanguageSpeakers(test_lang);
+        //Print Language report to console- requirement 32
+        //a.printLanguageSpeakers(a.getAllSpeakers());
 
         // Disconnect from database
         a.disconnect();
