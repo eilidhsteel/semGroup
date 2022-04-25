@@ -12,9 +12,9 @@ public class App {
         ReportSQL sql = new ReportSQL();
 
         // Connect to world database
-        if(args.length < 1){
+        if (args.length < 1) {
             a.connect("localhost:33060", 30000);
-        }else{
+        } else {
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
@@ -78,7 +78,7 @@ public class App {
                 System.out.println("Successfully connected");
                 break;
             } catch (SQLException sqle) {
-                System.out.println("Failed to connect to database attempt " +                                  Integer.toString(i));
+                System.out.println("Failed to connect to database attempt " + Integer.toString(i));
                 System.out.println(sqle.getMessage());
             } catch (InterruptedException ie) {
                 System.out.println("Thread interrupted? Should not happen.");
@@ -101,10 +101,8 @@ public class App {
         }
     }
 
-    public City getCity(String name)
-    {
-        try
-        {
+    public City getCity(String name) {
+        try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
@@ -117,20 +115,16 @@ public class App {
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new city if valid.
             // Check one is returned
-            if (rset.next())
-            {
+            if (rset.next()) {
                 City city = new City();
                 city.city_name = rset.getString("Name");
                 city.country = rset.getString("CountryCode");
                 city.district = rset.getString("District");
                 city.population = rset.getInt("Population");
                 return city;
-            }
-            else
+            } else
                 return null;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get city details");
             return null;
@@ -140,10 +134,8 @@ public class App {
     /**
      * Prints the details of a city object to the console.
      */
-    public void displayCity(City city)
-    {
-        if (city != null)
-        {
+    public void displayCity(City city) {
+        if (city != null) {
             System.out.println(
                     city.city_name + " "
                             + city.country + " "
@@ -154,20 +146,18 @@ public class App {
 
     /**
      * Gets all the current cities and populations.
+     *
      * @return A list of all cities and populations based on SQL query provided for chosen report, or null if there is an error.
      */
-    public ArrayList<City> getAllPopulationsCity(String strSelect)
-    {
-        try
-        {
+    public ArrayList<City> getAllPopulationsCity(String strSelect) {
+        try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract city information
             ArrayList<City> cities = new ArrayList<City>();
-            while (rset.next())
-            {
+            while (rset.next()) {
                 City city = new City();
                 city.city_name = rset.getString("Name");
                 city.country = rset.getString("country");
@@ -175,15 +165,12 @@ public class App {
                 city.population = rset.getInt("Population");
                 cities.add(city);
             }
-            if (cities.isEmpty()){
+            if (cities.isEmpty()) {
                 return null;
-            }
-            else {
+            } else {
                 return cities;
             }
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get population details");
             return null;
@@ -192,21 +179,19 @@ public class App {
 
     /**
      * Prints a list of cities.
+     *
      * @param cities The list of cities to print.
      */
-    public void printPopulationCity(ArrayList<City> cities)
-    {
+    public void printPopulationCity(ArrayList<City> cities) {
         // Check cities is not null
-        if (cities == null)
-        {
+        if (cities == null) {
             System.out.println("No cities");
             return;
         }
         // Print header
         System.out.println(String.format("%-20s %-20s %-25s %-10s", "City Name", "Country", "District", "Population"));
         // Loop over all cities in the list
-        for (City city : cities)
-        {
+        for (City city : cities) {
             if (city == null)
                 continue;
             String city_string =
@@ -216,23 +201,22 @@ public class App {
         }
         System.out.println();
     }
+
     /**
      * Prints a list of capital cities.
+     *
      * @param capitals The list of capital cities to print.
      */
-    public void printPopulationCapital(ArrayList<City> capitals)
-    {
+    public void printPopulationCapital(ArrayList<City> capitals) {
         // Check cities is not null
-        if (capitals == null)
-        {
+        if (capitals == null) {
             System.out.println("No cities");
             return;
         }
         // Print header
         System.out.println(String.format("%-20s %-20s %-10s", "City Name", "Country", "Population"));
         // Loop over all capitals in the list
-        for (City city : capitals)
-        {
+        for (City city : capitals) {
             if (city == null)
                 continue;
             String city_string =
@@ -243,10 +227,8 @@ public class App {
         System.out.println();
     }
 
-    public Country getCountry(String name)
-    {
-        try
-        {
+    public Country getCountry(String name) {
+        try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
@@ -259,8 +241,7 @@ public class App {
             ResultSet rset = stmt.executeQuery(strSelect);
             // Return new city if valid.
             // Check one is returned
-            if (rset.next())
-            {
+            if (rset.next()) {
                 Country country = new Country();
                 country.country_name = rset.getString("Name");
                 country.country_Code = rset.getString("Code");
@@ -269,7 +250,7 @@ public class App {
                 country.surface_area = rset.getInt("SurfaceArea");
                 country.indep_Year = rset.getInt("IndepYear");
                 country.population = rset.getInt("Population");
-                country.life_Expectancy= rset.getInt("LifeExpectancy");
+                country.life_Expectancy = rset.getInt("LifeExpectancy");
                 country.GNP = rset.getInt("GNP");
                 country.GNP_old = rset.getInt("GNPOld");
                 country.local_Name = rset.getString("LocalName");
@@ -278,22 +259,17 @@ public class App {
                 country.capital = rset.getString("Capital");
                 country.country_code2 = rset.getString("Code2");
                 return country;
-            }
-            else
+            } else
                 return null;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get country details");
             return null;
         }
     }
 
-    public void displayCountry(Country country)
-    {
-        if (country != null)
-        {
+    public void displayCountry(Country country) {
+        if (country != null) {
             System.out.println(
                     country.country_name + " "
                             + country.continent + " "
@@ -304,12 +280,12 @@ public class App {
 
     /**
      * Gets all the current countries and populations.
+     *
      * @return A list of all countries and populations, or null if there is an error.
+     * @param o
      */
-    public ArrayList<Country> getAllPopulationsCountry()
-    {
-        try
-        {
+    public ArrayList<Country> getAllPopulationsCountry(Object o) {
+        try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
@@ -321,8 +297,7 @@ public class App {
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract employee information
             ArrayList<Country> countries = new ArrayList<Country>();
-            while (rset.next())
-            {
+            while (rset.next()) {
                 Country country = new Country();
                 country.country_name = rset.getString("Name");
                 country.continent = rset.getString("Continent");
@@ -331,9 +306,7 @@ public class App {
                 countries.add(country);
             }
             return countries;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get population details");
             return null;
@@ -342,21 +315,19 @@ public class App {
 
     /**
      * Prints a list of cities.
+     *
      * @param countries The list of cities to print.
      */
-    public void printPopulationCountry(ArrayList<Country> countries)
-    {
+    public void printPopulationCountry(ArrayList<Country> countries) {
         // Check cities is not null
-        if (countries == null)
-        {
+        if (countries == null) {
             System.out.println("No countries");
             return;
         }
         // Print header
         System.out.println(String.format("%-20s %-20s %-25s %-10s", "City Name", "Country", "District", "Population"));
         // Loop over all cities in the list
-        for (Country country : countries)
-        {
+        for (Country country : countries) {
             if (country == null)
                 continue;
             String country_string =
@@ -368,12 +339,11 @@ public class App {
 
     /**
      * Gets all langauges and the number of speakers that speak them.
+     *
      * @return A list of all languages and the population that speak them, or null if there is an error.
      */
-    public ArrayList<Language> getAllSpeakers()
-    {
-        try
-        {
+    public ArrayList<Language> getAllSpeakers() {
+        try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
@@ -392,8 +362,7 @@ public class App {
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract employee information
             ArrayList<Language> languages = new ArrayList<Language>();
-            while (rset.next())
-            {
+            while (rset.next()) {
                 Language language = new Language();
                 language.language = rset.getString("Language");
                 language.speakers = rset.getInt("Speakers");
@@ -401,31 +370,28 @@ public class App {
                 languages.add(language);
             }
             return languages;
-        }
-        catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get population details");
             return null;
         }
     }
+
     /**
      * Prints a list of cities.
+     *
      * @param languages The list of cities to print.
      */
-    public void printLanguageSpeakers(ArrayList<Language> languages)
-    {
+    public void printLanguageSpeakers(ArrayList<Language> languages) {
         // Check languages is not null
-        if (languages == null)
-        {
+        if (languages == null) {
             System.out.println("No languages");
             return;
         }
         // Print header
         System.out.println(String.format("%-20s %-20s %-20s", "Language", "Speakers", "Percentage of World Population"));
         // Loop over all cities in the list
-        for (Language language : languages)
-        {
+        for (Language language : languages) {
             if (language == null)
                 continue;
             String language_string =
@@ -434,6 +400,7 @@ public class App {
             System.out.println(language_string);
         }
     }
-
-
 }
+
+
+
