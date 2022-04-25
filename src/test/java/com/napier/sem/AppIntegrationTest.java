@@ -248,7 +248,13 @@ public class AppIntegrationTest
         assertEquals(countries.size(), 103000);
     }
 
-    
+    @Test
+    void GetAllPopulationsTest5()
+    {
+        ArrayList countries = app.getAllPopulationsCountry(sql.population5("Europe"));
+        assertEquals(countries.size(), 103000);
+    }
+
     @Test
     void GetAllSpeakersTest()
     {
