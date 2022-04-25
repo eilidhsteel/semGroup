@@ -2,7 +2,6 @@ package com.napier.sem;
 
         import org.junit.jupiter.api.BeforeAll;
         import org.junit.jupiter.api.Test;
-        import org.junit.jupiter.api.TestInstance;
 
         import java.util.ArrayList;
 
@@ -34,7 +33,7 @@ public class AppIntegrationTest
     void GetAllPopulationsCityTestNull()
     {
         ArrayList cities = app.getAllPopulationsCity(null);
-        assertEquals(cities, null);
+        assertNull(cities);
     }
 
     @Test
@@ -228,7 +227,12 @@ public class AppIntegrationTest
         assertEquals(countries.size(), 103000);
     }
 
-    
+    @Test
+    void GetAllPopulationsTest2()
+    {
+        ArrayList countries = app.getAllPopulationsCountry(sql.population2("Caribbean", 10));
+        assertEquals(countries.size(), 103000);
+    }
 
     @Test
     void GetAllSpeakersTest()
