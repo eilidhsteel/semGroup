@@ -50,7 +50,7 @@ public class App {
         //Print Language report to console- requirement 32
         //a.printLanguageSpeakers(a.getAllSpeakers());
 
-        //a.printPopulations(a.getAllPopulations(sql.population1("AFRICA")));
+        a.printPopulations(a.getAllPopulations(sql.population1("Europe")));
 
 
         // Disconnect from database
@@ -430,9 +430,9 @@ public class App {
             while (rset.next()) {
                 Population population = new Population();
                 population.name = rset.getString("Name");
-                population.inCity = rset.getInt("Total Population in cities");
-                population.outCity = rset.getInt("Total Population not in cities");
-                population.totalPop = rset.getInt("Total Population");
+                population.inCity = rset.getInt("InCity");
+                population.outCity = rset.getInt("OutCity");
+                population.totalPop = rset.getInt("Total_Pop");
                 populations.add(population);
             }
             if (populations.isEmpty()) {
