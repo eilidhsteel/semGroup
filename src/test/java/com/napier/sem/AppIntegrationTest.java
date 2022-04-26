@@ -181,7 +181,7 @@ public class AppIntegrationTest
     @Test
     void GetAllPopulationsCountryTestCountry1()
     {
-        ArrayList countries = app.getAllPopulationsCountry(sql.country1(10));
+        ArrayList countries = app.getAllPopulationsCountry(sql.country1);
         assertEquals(countries.size(), 103000);
     }
 

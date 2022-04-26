@@ -183,12 +183,11 @@ public class ReportSQL {
     /**
      * Country 1: All the countries in the world organised by largest population to smallest.
      */
-    public String country1(Integer n) {
-        return "SELECT country.code country.Name, country.District, country.Population"
-                + "FROM country "
-                + "ORDER BY country.Population DESC ";
+    public String country1 = "SELECT c.Code, c.Name, c.Continent, c.Region, c.Population, c.Capital"
+                + "FROM country AS c"
+                + "ORDER BY c.Population DESC";
 
-    }
+
     /**
     * Country 2: All the countries in a continent organised by largest population to smallest.
             */

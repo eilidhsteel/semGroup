@@ -36,10 +36,11 @@ public class App {
         //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital3("Western Europe"))); // Capital report 3 - requirement 19
         //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital4(5))); // Capital report 4 - requirement 20
         //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital5("Europe", 5))); // Capital report 5 - requirement 21
-        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6 - requirement 22
+        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6 - requirement 22
 
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
         //a.printPopulationCountry(test_countries);
+        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country1));
 
         //Print Language report to console- requirement 32
         //a.printLanguageSpeakers(a.getAllSpeakers());
@@ -282,17 +283,13 @@ public class App {
      * Gets all the current countries and populations.
      *
      * @return A list of all countries and populations, or null if there is an error.
-     * @param o
+
      */
-    public ArrayList<Country> getAllPopulationsCountry(Object o) {
+    public ArrayList<Country> getAllPopulationsCountry(String strSelect) {
         try {
             // Create an SQL statement
             Statement stmt = con.createStatement();
             // Create string for SQL statement
-            String strSelect =
-                    "SELECT c.Name, c.continent, c.region, c.Population, c.Code "
-                            + "FROM country AS c "
-                            + "ORDER BY c.Population DESC";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract employee information
@@ -305,7 +302,11 @@ public class App {
                 country.population = rset.getInt("Population");
                 countries.add(country);
             }
-            return countries;
+            if (countries.isEmpty()) {
+                return null;
+            } else {
+                return countries;
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage());
             System.out.println("Failed to get population details");
@@ -314,9 +315,9 @@ public class App {
     }
 
     /**
-     * Prints a list of cities.
+     * Prints a list of countries.
      *
-     * @param countries The list of cities to print.
+     * @param countries The list of countries to print.
      */
     public void printPopulationCountry(ArrayList<Country> countries) {
         // Check cities is not null
@@ -325,14 +326,14 @@ public class App {
             return;
         }
         // Print header
-        System.out.println(String.format("%-20s %-20s %-25s %-10s", "City Name", "Country", "District", "Population"));
+        System.out.println(String.format("%-20s %-20s %-25s %-10s","Code", "Country Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all cities in the list
         for (Country country : countries) {
             if (country == null)
                 continue;
             String country_string =
                     String.format("%-20s %-20s %-25s %-10s",
-                            country.country_name, country.continent, country.region, country.population);
+                            country.country_Code, country.country_name, country.continent, country.region, country.population, country.capital);
             System.out.println(country_string);
         }
     }
