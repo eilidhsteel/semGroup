@@ -40,7 +40,12 @@ public class App {
 
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
         //a.printPopulationCountry(test_countries);
-        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country1));
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country1));
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country2("Africa")));
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country3("Caribbean")));
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country4(10)));
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country5("Europe", 7)));
+        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country6("Southern Europe", 15)));
 
         //Print Language report to console- requirement 32
         //a.printLanguageSpeakers(a.getAllSpeakers());
@@ -257,7 +262,7 @@ public class App {
                 country.local_Name = rset.getString("LocalName");
                 country.government_form = rset.getString("GovernmentForm");
                 country.head_of_state = rset.getString("HeadOfState");
-                country.capital = rset.getString("Capital");
+                country.capital = rset.getInt("Capital");
                 country.country_code2 = rset.getString("Code2");
                 return country;
             } else
@@ -296,10 +301,12 @@ public class App {
             ArrayList<Country> countries = new ArrayList<Country>();
             while (rset.next()) {
                 Country country = new Country();
+                country.country_Code = rset.getString("Code");
                 country.country_name = rset.getString("Name");
                 country.continent = rset.getString("Continent");
                 country.region = rset.getString("Region");
                 country.population = rset.getInt("Population");
+                country.capital = rset.getInt("Capital");
                 countries.add(country);
             }
             if (countries.isEmpty()) {
@@ -326,13 +333,13 @@ public class App {
             return;
         }
         // Print header
-        System.out.println(String.format("%-20s %-20s %-25s %-10s","Code", "Country Name", "Continent", "Region", "Population", "Capital"));
+        System.out.println(String.format("%-20s %-45s %-30s %-30s %-30s %-20s","Code", "Country Name", "Continent", "Region", "Population", "Capital"));
         // Loop over all cities in the list
         for (Country country : countries) {
             if (country == null)
                 continue;
             String country_string =
-                    String.format("%-20s %-20s %-25s %-10s",
+                    String.format("%-20s %-45s %-30s %-30s %-30s %-20s",
                             country.country_Code, country.country_name, country.continent, country.region, country.population, country.capital);
             System.out.println(country_string);
         }

@@ -73,7 +73,7 @@ public class Country {
     /**
      * Capital of the country
      */
-    public String capital;
+    public int capital;
 
     /**
      * Independence year of the country

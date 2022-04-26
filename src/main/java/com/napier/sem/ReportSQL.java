@@ -10,7 +10,7 @@ public class ReportSQL {
     public String city1 = "SELECT c.Name, c.District, c.Population, ct.Name AS country "
             + "FROM city AS c "
             + "LEFT JOIN country AS ct ON c.CountryCode = ct.Code "
-            + "ORDER BY c.Population DESC";
+            + "ORDER BY c.Population DESC ";
 
     /**
      * City 2: All the cities in a continent organised by largest population to smallest.
@@ -20,7 +20,7 @@ public class ReportSQL {
                 + "FROM city AS c "
                 + "LEFT JOIN country ON c.CountryCode = country.Code "
                 + "WHERE country.Continent = '" + continent + "' "
-                + "ORDER BY c.Population DESC";
+                + "ORDER BY c.Population DESC ";
     }
 
     /**
@@ -183,37 +183,37 @@ public class ReportSQL {
     /**
      * Country 1: All the countries in the world organised by largest population to smallest.
      */
-    public String country1 = "SELECT c.Code, c.Name, c.Continent, c.Region, c.Population, c.Capital"
-                + "FROM country AS c"
-                + "ORDER BY c.Population DESC";
+    public String country1 = "SELECT c.Code, c.Name, c.Continent, c.Region, c.Population, c.Capital "
+                + "FROM country AS c "
+                + "ORDER BY c.Population DESC ";
 
 
     /**
     * Country 2: All the countries in a continent organised by largest population to smallest.
             */
     public String country2(String continent){
-        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
+        return "SELECT c.Code, c.Name, c.Continent, c.Region, c.Population, c.Capital "
                 + "FROM country AS c "
-                + "WHERE country.Continent = '" + continent + "' "
-                + "ORDER BY c.Population DESC";
+                + "WHERE c.Continent = '" + continent + "' "
+                + "ORDER BY c.Population DESC ";
     }
 
     /**
      * Country 3: All the countries in a region organised by largest population to smallest.
      */
     public String country3(String region) {
-        return "SELECT country.code country.Name, country.District, country.Population"
-                + "FROM country "
-                + "WHERE country.region = '" + region + "' "
-                + "ORDER BY country.Population DESC ";
+        return "SELECT c.Code, c.Name, c.Continent, c.Region, c.Population, c.Capital "
+                + "FROM country AS c "
+                + "WHERE c.region = '" + region + "' "
+                + "ORDER BY c.Population DESC ";
     }
     /**
      * Country 4: The top N populated countries in the world where N is provided by the user.
      */
     public String country4(Integer n){
-        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
-                + "FROM country "
-                + "ORDER BY country.Population DESC "
+        return "SELECT c.Code, c.Name, c.Continent, c.Region, c.Population, c.Capital "
+                + "FROM country AS c "
+                + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
 
@@ -221,20 +221,20 @@ public class ReportSQL {
      * Country 5: The top N populated countries in a continent where N is provided by the user.
      */
     public String country5(String continent, Integer n){
-        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
-                + "FROM country "
-                + "WHERE country.continent = '" + continent+ "' "
-                + "ORDER BY country.Population DESC "
+        return "SELECT c.Code, c.Name, c.Continent, c.Region, c.Population, c.Capital "
+                + "FROM country AS c "
+                + "WHERE c.continent = '" + continent+ "' "
+                + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
     /**
      * Country 6: The top N populated countries in a region where N is provided by the user.
      */
     public String country6(String region, Integer n){
-        return "SELECT c.Code, c.Continent, c.Region, c.Capital, c.Population, country.Name AS country "
-                + "FROM country "
-                + "WHERE country.Region = '" + region + "' "
-                + "ORDER BY country.Population DESC "
+        return "SELECT c.Code, c.Name, c.Continent, c.Region, c.Population, c.Capital "
+                + "FROM country AS c "
+                + "WHERE c.Region = '" + region + "' "
+                + "ORDER BY c.Population DESC "
                 + "LIMIT " + n;
     }
 
