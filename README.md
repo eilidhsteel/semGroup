@@ -18,7 +18,7 @@ __ requirements of 32 have been implemented, which is ___%.
 | 3  | All the countries in a region organised by largest population to smallest.                                                             | Yes | ![003.png](submission-screenshots/003.png) |
 | 4  | The top N populated countries in the world where N is provided by the user.                                                            | Yes | ![004.png](submission-screenshots/004.png) |
 | 5  | The top N populated countries in a continent where N is provided by the user                                                           | Yes | ![005.png](submission-screenshots/005.png) |
-| 6  | The top N populated countries in a region where N is provided by the user.                                                             |     |                                            |
+| 6  | The top N populated countries in a region where N is provided by the user.                                                             | Yes | ![006.png](submission-screenshots/006.png) |
 | 7  | All the cities in the world organised by largest population to smallest.                                                               | Yes | ![7.png](submission-screenshots/7.png)     |
 | 8  | All the cities in a continent organised by largest population to smallest.                                                             | Yes | ![8.png](submission-screenshots/8.png)     |
 | 9  | All the cities in a region organised by largest population to smallest.                                                                | Yes | ![9.png](submission-screenshots/9.png)     |
