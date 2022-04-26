@@ -40,12 +40,12 @@ public class App {
 
         //ArrayList<Country> test_countries = a.getAllPopulationsCountry();
         //a.printPopulationCountry(test_countries);
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country1));
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country2("Africa")));
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country3("Caribbean")));
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country4(10)));
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country5("Europe", 7)));
-        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country6("Southern Europe", 15)));
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country1)); //Country report 1 - requirement 1
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country2("Africa"))); //Country report 2 - requirement
+        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country3("Caribbean"))); //Country report 3 - requirement 3
+        // a.printPopulationCountry(a.getAllPopulationsCountry(sql.country4(10))); //Country report 4 - requirement 4
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country5("Europe", 7))); //Country report 5 - requirement 5
+        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country6("Southern Europe", 15))); //Country report 6 - requirement 6
 
         //Print Language report to console- requirement 32
         //a.printLanguageSpeakers(a.getAllSpeakers());
