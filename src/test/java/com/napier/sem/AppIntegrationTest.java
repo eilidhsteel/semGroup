@@ -235,7 +235,7 @@ public class AppIntegrationTest
     void GetAllPopulationsCountryTestCountry1()
     {
         ArrayList countries = app.getAllPopulationsCountry(sql.country1);
-        assertEquals(countries.size(), 103000);
+        assertEquals(countries.size(), 239);
     }
     /**
      *
@@ -244,7 +244,7 @@ public class AppIntegrationTest
     void GetAllPopulationsCountryTestCountry2()
     {
         ArrayList countries = app.getAllPopulationsCountry(sql.country2("Africa"));
-        assertEquals(countries.size(), 103000);
+        assertEquals(countries.size(), 58);
     }
     /**
      *
@@ -253,7 +253,7 @@ public class AppIntegrationTest
     void GetAllPopulationsCountryTestCountry3()
     {
         ArrayList countries = app.getAllPopulationsCountry(sql.country3("Caribbean"));
-        assertEquals(countries.size(), 103000);
+        assertEquals(countries.size(), 24);
     }
     /**
      *
@@ -262,7 +262,7 @@ public class AppIntegrationTest
     void GetAllPopulationsCountryTestCountry4()
     {
         ArrayList countries = app.getAllPopulationsCountry(sql.country4(9));
-        assertEquals(countries.size(), 103000);
+        assertEquals(countries.size(), 9);
     }
     /**
      *
@@ -271,14 +271,14 @@ public class AppIntegrationTest
     void GetAllPopulationsCountryTestCountry5()
     {
         ArrayList countries = app.getAllPopulationsCountry(sql.country5("Africa", 12));
-        assertEquals(countries.size(), 103000);
+        assertEquals(countries.size(), 12);
     }
 
     @Test
     void GetAllPopulationsCountryTestCountry6()
     {
         ArrayList countries = app.getAllPopulationsCountry(sql.country6("Caribbean", 10));
-        assertEquals(countries.size(), 103000);
+        assertEquals(countries.size(), 10);
     }
 
     @Test

@@ -247,8 +247,8 @@ public class ReportSQL {
                 + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
                 + "FROM country ct "
                 + "JOIN(SELECT c.CountryCode,SUM(c.population) AS Population "
-                + "WHERE c.Continent = '" + continent + "' "
-                + "FROM city AS c GROUP BY 1 c ON ct.Code = c.CountryCode "
+                + "FROM city AS c GROUP BY 1) c ON ct.Code = c.CountryCode "
+                + "WHERE ct.Continent = '" + continent + "' "
                 + "GROUP BY ct.Continent";
     }
 
