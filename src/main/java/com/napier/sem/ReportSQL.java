@@ -256,93 +256,79 @@ public class ReportSQL {
      * Population 2: The population of people, people living in cities, and people not living in cities in each region.
      */
 
-    public String population2(String region, Integer n){
-        return "SELECT co.Region AS Name, SUM(co.Population) AS Total_Pop, "
-                + "SUM(ci.Population) AS InCity, "
-                + "SUM(co.Population)  - SUM(ci.Population) AS OutCity "
-                + "FROM country co "
-                + "WHERE country.Region = '" + region + "' "
-                + "JOIN (SELECT "
-                + "ci.CountryCode "
-                + ",SUM(ci.population) AS Population "
-                + "FROM Region ci GROUP BY 1) ci ON ci.CountryCode = co.code "
-                + "GROUP BY Region";
+    public String population2(String region){
+        return "SELECT ct.Region AS Name, SUM(ct.Population) AS Total_Pop, "
+                + "SUM(c.Population) AS InCity, "
+                + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
+                + "FROM country ct "
+                + "JOIN(SELECT c.CountryCode,SUM(c.population) AS Population "
+                + "FROM city AS c GROUP BY 1) c ON ct.Code = c.CountryCode "
+                + "WHERE ct.Region = '" + region + "' "
+                + "GROUP BY ct.Region";
     }
     /**
      * Population 3: The population of people, people living in cities, and people not living in cities in each country.
      */
     public String population3(String country){
-        return "SELECT ct.Continent AS Name, SUM(ct.Population) AS Total_Pop, "
+        return "SELECT ct.Name AS Name, SUM(ct.Population) AS Total_Pop, "
                 + "SUM(c.Population) AS InCity, "
                 + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
                 + "FROM country ct "
-                + "WHERE country.Name = '" + country + "' "
-                + "JOIN(SELECT "
-                + "c.CountryCode "
-                + ",SUM(c.population) AS Population "
-                + "FROM city c GROUP BY 1) c ON c.CountryCode = ct.code "
-                + "GROUP BY Continent ";
+                + "JOIN(SELECT c.CountryCode,SUM(c.population) AS Population "
+                + "FROM city AS c GROUP BY 1) c ON ct.Code = c.CountryCode "
+                + "WHERE ct.Name = '" + country + "' "
+                + "GROUP BY ct.Name";
     }
 
     /**
      * Population 4: The population of the world.
      */
-    public String population4 =  "SELECT continent AS Name, SUM(population) AS Total Population "
-            + "FROM country"
-            + "GROUP BY 1 "
-            + "ORDER BY Population DESC";
+    public String population4 =  "SELECT 'World' AS Name, SUM(population) AS Total_Pop "
+            + "FROM country ";
 
     /**
      * Population 5: The population of a continent.
      */
     public String population5(String continent){
-        return "SELECT continent, SUM(population) AS Total Population "
+        return "SELECT continent AS Name, SUM(population) AS Total_Pop "
                 + "FROM country "
-                + "WHERE continent = '" + continent + "' "
-                + "GROUP BY 1 "
-                + "ORDER BY Population DESC";
+                + "WHERE continent = '" + continent + "' ";
     }
 
     /**
      * Population 6: The population of a region.
      */
     public String population6(String region){
-        return "SELECT region, SUM(population) AS Population "
+        return "SELECT region AS Name, SUM(population) AS Total_Pop "
                 + "FROM country c "
-                + "WHERE country.region = '" + region + "' "
-                + "GROUP BY 1 "
-                + "ORDER BY Population DESC";
+                + "WHERE c.region = '" + region + "' ";
     }
 
     /**
      * Population 7: The population of a country in order.
      */
     public String population7(String country){
-        return "SELECT name, SUM(population) AS Population "
+        return "SELECT Name, SUM(population) AS Total_Pop "
                 + "FROM country c "
-                + "WHERE country.Country = '" + country + "' "
-                + "GROUP BY 1 "
-                + "ORDER BY Population DESC";
+                + "WHERE c.Name = '" + country + "' ";
     }
     /**
      * Population 8: The population of a district.
      */
     public String population8(String district){
-        return "SELECT district, SUM(population) AS Population "
+        return "SELECT district AS Name, SUM(ci.population) AS Total_Pop "
                 + "FROM country c "
-                + "WHERE city.district = '" + district + "' "
-                + "GROUP BY 1 "
-                + "ORDER BY Population DESC";
+                + "LEFT JOIN city AS ci ON ci.CountryCode = c.Code "
+                + "WHERE ci.district = '" + district + "' ";
     }
     /**
       * Population 9: The population of a city.
      */
     public String population9(String city){
-        return "SELECT Name, SUM(population) AS Population "
-                + "FROM city c "
-                + "WHERE city.Name = '" + city + "' "
-                + "GROUP BY 1 "
-                + "ORDER BY Population DESC";
+        return "SELECT ci.Name, SUM(ci.population) AS Total_Pop "
+                + "FROM country c "
+                + "LEFT JOIN city AS ci ON ci.CountryCode = c.Code "
+                + "WHERE ci.Name = '" + city + "' ";
     }
 
 }

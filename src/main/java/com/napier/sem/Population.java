@@ -19,6 +19,6 @@ public class Population
     public int outCity;
 
 
-    public int totalPop;
+    public double totalPop;
 
 }
