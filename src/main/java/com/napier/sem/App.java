@@ -52,6 +52,7 @@ public class App {
 
         //a.printPopulations(a.getAllPopulations(sql.population1("AFRICA")));
 
+
         // Disconnect from database
         a.disconnect();
     }
@@ -469,6 +470,8 @@ public class App {
             System.out.println(population_string);
         }
     }
+
+
 
 }
 

@@ -80,4 +80,6 @@ public class Country {
      */
     public String country_code2;
 
+    public int totalPop;
+
 }

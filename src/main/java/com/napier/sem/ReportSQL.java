@@ -287,8 +287,8 @@ public class ReportSQL {
     /**
      * Population 4: The population of the world.
      */
-    public String population4 =  "SELECT continent, SUM(population) AS Population "
-            + "FROM country c "
+    public String population4 =  "SELECT continent AS Name, SUM(population) AS Total Population "
+            + "FROM country"
             + "GROUP BY 1 "
             + "ORDER BY Population DESC";
 
@@ -296,9 +296,9 @@ public class ReportSQL {
      * Population 5: The population of a continent.
      */
     public String population5(String continent){
-        return "SELECT continent, SUM(population) AS Population "
-                + "FROM country c "
-                + "WHERE country.continent = '" + continent + "' "
+        return "SELECT continent, SUM(population) AS Total Population "
+                + "FROM country "
+                + "WHERE continent = '" + continent + "' "
                 + "GROUP BY 1 "
                 + "ORDER BY Population DESC";
     }
