@@ -79,4 +79,5 @@ public class Country {
      * Independence year of the country
      */
     public String country_code2;
+
 }

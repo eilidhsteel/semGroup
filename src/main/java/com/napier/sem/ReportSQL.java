@@ -242,16 +242,14 @@ public class ReportSQL {
      * Population 1: The population of people, people living in cities, and people not living in cities in each continent.
      */
     public String population1(String continent){
-        return "SELECT ct.Continent AS Continent, SUM(ct.Population) AS Total_Pop, "
+        return "SELECT ct.Continent AS Name, SUM(ct.Population) AS Total_Pop, "
                 + "SUM(c.Population) AS InCity, "
                 + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
                 + "FROM country ct "
-                + "WHERE country.continent = '" + continent + "' "
-                + "JOIN (SELECT "
-                + "c.CountryCode "
-                + ",SUM(c.population) AS Population "
-                + "FROM city c GROUP BY 1) c ON c.CountryCode = ct.code "
-                + "GROUP BY Continent";
+                + "JOIN(SELECT c.CountryCode,SUM(c.population) AS Population "
+                + "WHERE c.Continent = '" + continent + "' "
+                + "FROM city AS c GROUP BY 1 c ON ct.Code = c.CountryCode "
+                + "GROUP BY ct.Continent";
     }
 
     /**
@@ -259,7 +257,7 @@ public class ReportSQL {
      */
 
     public String population2(String region, Integer n){
-        return "SELECT co.Region AS Region, SUM(co.Population) AS Total_Pop, "
+        return "SELECT co.Region AS Name, SUM(co.Population) AS Total_Pop, "
                 + "SUM(ci.Population) AS InCity, "
                 + "SUM(co.Population)  - SUM(ci.Population) AS OutCity "
                 + "FROM country co "
@@ -274,16 +272,16 @@ public class ReportSQL {
      * Population 3: The population of people, people living in cities, and people not living in cities in each country.
      */
     public String population3(String country){
-        return "SELECT ct.Continent AS Continent, SUM(ct.Population) AS Total_Pop, "
+        return "SELECT ct.Continent AS Name, SUM(ct.Population) AS Total_Pop, "
                 + "SUM(c.Population) AS InCity, "
                 + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
                 + "FROM country ct "
                 + "WHERE country.Name = '" + country + "' "
-                + "JOIN (SELECT "
+                + "JOIN(SELECT "
                 + "c.CountryCode "
                 + ",SUM(c.population) AS Population "
                 + "FROM city c GROUP BY 1) c ON c.CountryCode = ct.code "
-                + "GROUP BY Continent";
+                + "GROUP BY Continent ";
     }
 
     /**
