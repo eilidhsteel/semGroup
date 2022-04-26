@@ -50,7 +50,15 @@ public class App {
         //Print Language report to console- requirement 32
         //a.printLanguageSpeakers(a.getAllSpeakers());
 
-        a.printPopulations(a.getAllPopulations(sql.population1("Europe")));
+        //a.printPopulations(a.getAllPopulations(sql.population1("Europe")));
+        //a.printPopulations(a.getAllPopulations(sql.population2("Western Europe")));
+       //a.printPopulations(a.getAllPopulations(sql.population3("United Kingdom")));
+        //a.printPopulations1(a.getAllPopulations1(sql.population4));
+        //a.printPopulations1(a.getAllPopulations1(sql.population5("Europe")));
+        //a.printPopulations1(a.getAllPopulations1(sql.population6("Western Europe")));
+        //a.printPopulations1(a.getAllPopulations1(sql.population7("United Kingdom")));
+        //a.printPopulations1(a.getAllPopulations1(sql.population8("Scotland")));
+        a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee")));
 
 
         // Disconnect from database
@@ -432,7 +440,7 @@ public class App {
                 population.name = rset.getString("Name");
                 population.inCity = rset.getInt("InCity");
                 population.outCity = rset.getInt("OutCity");
-                population.totalPop = rset.getInt("Total_Pop");
+                population.totalPop = rset.getDouble("Total_Pop");
                 populations.add(population);
             }
             if (populations.isEmpty()) {
@@ -471,7 +479,56 @@ public class App {
         }
     }
 
+    /**
+     * Prints a list of cities.
+     *
+     * @param populations The list of cities to print.
+     */
+    public void printPopulations1(ArrayList<Population> populations) {
+        // Check languages is not null
+        if (populations == null) {
+            System.out.println("No languages");
+            return;
+        }
+        // Print header
+        System.out.println(String.format("%-20s %-20s", "Name", "Total Population"));
+        // Loop over all cities in the list
+        for (Population population : populations) {
+            if (population == null)
+                continue;
+            String population_string =
+                    String.format("%-20s %-20s",
+                            population.name, population.totalPop);
+            System.out.println(population_string);
+        }
+    }
 
+    public ArrayList<Population> getAllPopulations1(String strSelect) {
+        try {
+            // Create an SQL statement
+            Statement stmt = con.createStatement();
+            // Create string for SQL statement
+            // Execute SQL statement
+            ResultSet rset = stmt.executeQuery(strSelect);
+            // Extract employee information
+            ArrayList<Population> populations = new ArrayList<Population>();
+            while (rset.next()) {
+                Population population = new Population();
+                population.name = rset.getString("Name");
+                population.totalPop = rset.getDouble("Total_Pop");
+                populations.add(population);
+            }
+            if (populations.isEmpty()) {
+                return null;
+            } else {
+                return populations;
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.out.println("Failed to get population details");
+            return null;
+        }
+    }
 
 }
 
