@@ -50,7 +50,7 @@ public class App {
         //Print Language report to console- requirement 32
         //a.printLanguageSpeakers(a.getAllSpeakers());
 
-        a.printPopulations(a.getAllPopulations(sql.population1("AFRICA")));
+        //a.printPopulations(a.getAllPopulations(sql.population1("AFRICA")));
 
         // Disconnect from database
         a.disconnect();
