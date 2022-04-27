@@ -13,10 +13,14 @@ public class Population
      */
     public int inCity;
 
+    public float percentageIn;
+
     /**
      * Continent which the country is within
      */
     public int outCity;
+
+    public float percentageOut;
 
 
     public double totalPop;

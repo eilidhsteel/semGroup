@@ -242,9 +242,8 @@ public class ReportSQL {
      * Population 1: The population of people, people living in cities, and people not living in cities in each continent.
      */
     public String population1(String continent){
-        return "SELECT ct.Continent AS Name, SUM(ct.Population) AS Total_Pop, "
+        return "SELECT ct.Continent AS Name, SUM(ct.Population) AS Total_Pop "
                 + "SUM(c.Population) AS InCity, "
-                + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
                 + "FROM country ct "
                 + "JOIN(SELECT c.CountryCode,SUM(c.population) AS Population "
                 + "FROM city AS c GROUP BY 1) c ON ct.Code = c.CountryCode "
