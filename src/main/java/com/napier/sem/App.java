@@ -52,14 +52,14 @@ public class App {
 
         //Print all population reports to the console
         //a.printPopulations(a.getAllPopulations(sql.population1("Europe"))); //Population report 1 - requirement 23
-        //a.printPopulations(a.getAllPopulations(sql.population2("Western Europe"))); //Population report 4 - requirement 24
+        //a.printPopulations(a.getAllPopulations(sql.population2("Western Europe"))); //Population report 2 - requirement 24
        //a.printPopulations(a.getAllPopulations(sql.population3("United Kingdom"))); //Population report 3 - requirement 25
         //a.printPopulations1(a.getAllPopulations1(sql.population4)); //Population report 4 - requirement 26
         //a.printPopulations1(a.getAllPopulations1(sql.population5("Europe"))); //Population report 5 - requirement 27
         //a.printPopulations1(a.getAllPopulations1(sql.population6("Western Europe"))); //Population report 5 - requirement 28
         //a.printPopulations1(a.getAllPopulations1(sql.population7("United Kingdom"))); // Population report 6 - requirement 29
         //a.printPopulations1(a.getAllPopulations1(sql.population8("Scotland"))); //Population report 7 - requirement 30
-        // a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee"))); //Population report 8 - requirement 31
+        a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee"))); //Population report 8 - requirement 31
 
 
         // Disconnect from database

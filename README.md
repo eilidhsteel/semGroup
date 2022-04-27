@@ -38,10 +38,10 @@ __ requirements of 32 have been implemented, which is ___%.
 | 23 | The population of people, people living in cities, and people not living in cities in each continent.                                  |     |                                            |
 | 24 | The population of people, people living in cities, and people not living in cities in each region.                                     |     |                                            |
 | 25 | The population of people, people living in cities, and people not living in cities in each country.                                    |     |                                            |
-| 26 | The population of the world.                                                                                                           | Yes |                                            |
-| 27 | The population of a continent.                                                                                                         | Yes |                                            |
-| 28 | The population of a region.                                                                                                            | Yes |                                            |
-| 29 | The population of a country.                                                                                                           | Yes |                                            |
-| 30 | The population of a district.                                                                                                          | Yes |                                            |
-| 31 | The population of a city.                                                                                                              | Yes |                                            |
+| 26 | The population of the world.                                                                                                           | Yes | ![26.png](submission-screenshots/26.png)   |
+| 27 | The population of a continent.                                                                                                         | Yes | ![27.png](submission-screenshots/27.png)   |
+| 28 | The population of a region.                                                                                                            | Yes | ![28.png](submission-screenshots/28.png)   |
+| 29 | The population of a country.                                                                                                           | Yes | ![29.png](submission-screenshots/29.png)   |
+| 30 | The population of a district.                                                                                                          | Yes | ![30.png](submission-screenshots/30.png)   |
+| 31 | The population of a city.                                                                                                              | Yes | ![31.png](submission-screenshots/31.png)   |
 | 32 | The number of people who speak the listed languages from greatest number to smallest, including the percentage of the world population | Yes | ![32.png](submission-screenshots/32.png)   |
