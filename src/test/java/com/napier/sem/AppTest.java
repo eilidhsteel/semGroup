@@ -18,12 +18,14 @@ public class AppTest
         app = new App();
     }
 
+    //passing a null value into to displycity method
     @Test
     void displayCityTestNull()
     {
         app.displayCity(null);
     }
 
+    //testing the displaycity method to see if ti passes with no values added
     @Test
     void displayCityTestNoDetails()
     {
@@ -31,6 +33,7 @@ public class AppTest
         app.displayCity(city);
     }
 
+    //method to allow new details to be added to the displaycity methods
     @Test
     void displayCity()
     {
@@ -42,12 +45,14 @@ public class AppTest
         app.displayCity(city);
     }
 
+    ////passing a null value into to printpopualtioncity method
     @Test
     void printPopulationCityTestNull()
     {
         app.printPopulationCity(null);
     }
 
+    //test created to check if the print method below can be run without passing in values
     @Test
     void printPopulationCityTestEmpty()
     {
@@ -55,6 +60,7 @@ public class AppTest
         app.printPopulationCity(cities);
     }
 
+    //test to check that the print method below will run with add null values
     @Test
     void printPopulationCityTestContainsNull()
     {
@@ -63,6 +69,7 @@ public class AppTest
         app.printPopulationCity(cities);
     }
 
+    //test to check the print method work with values that are stored in database
     @Test
     void printPopulationCity()
     {
@@ -76,12 +83,14 @@ public class AppTest
         app.printPopulationCity(cities);
     }
 
+    //passing a null value into to printpopulationcaptital method
     @Test
     void printPopulationCapitalTestNull()
     {
         app.printPopulationCapital(null);
     }
 
+    //test created to check if the print method below can be run without passing in values
     @Test
     void printPopulationCapitalTestEmpty()
     {
@@ -89,6 +98,7 @@ public class AppTest
         app.printPopulationCapital(capitals);
     }
 
+    //test to check that the print method below will run with add null values
     @Test
     void printPopulationCapitalTestContainsNull()
     {
@@ -110,12 +120,14 @@ public class AppTest
         app.printPopulationCity(capitals);
     }
 
+    //passing a null value into to printpopulationcountry method
     @Test
     void printPopulationCountryTestNull()
     {
         app.printPopulationCountry(null);
     }
 
+    //test created to check if the print method below can be run without passing in values
     @Test
     void printPopulationCountryTestEmpty()
     {
@@ -123,6 +135,7 @@ public class AppTest
         app.printPopulationCountry(countries);
     }
 
+    //test to check that the print method below will run with add null values
     @Test
     void printPopulationCountryTestContainsNull()
     {
@@ -155,12 +168,14 @@ public class AppTest
         app.printPopulationCountry(countries);
     }
 
+    //passing a null value into to printlanuagespeaker method
     @Test
     void printSpeakersTestNull()
     {
         app.printLanguageSpeakers(null);
     }
 
+    //test created to check if the print method below can be run without passing in values
     @Test
     void printSpeakersTestEmpty()
     {
@@ -168,6 +183,7 @@ public class AppTest
         app.printLanguageSpeakers(languages);
     }
 
+    //test to check that the print method below will run with add null values
     @Test
     void printSpeakersTestContainsNull()
     {
@@ -188,12 +204,14 @@ public class AppTest
         app.printLanguageSpeakers(languages);
     }
 
+    //passing a null value into to populations method
     @Test
     void printPopulationsTestNull()
     {
         app.printPopulations(null);
     }
 
+    //test created to check if the print method below can be run without passing in values
     @Test
     void printPopulationsTestEmpty()
     {
@@ -201,6 +219,7 @@ public class AppTest
         app.printPopulations(populations);
     }
 
+    //test to check that the print method below will run with add null values
     @Test
     void printPopulationsTestContainsNull()
     {
@@ -221,12 +240,14 @@ public class AppTest
         app.printPopulations(populations);
     }
 
+    //passing a null value into to printpopulations1 method
     @Test
     void printPopulations1TestNull()
     {
         app.printPopulations1(null);
     }
 
+    //test created to check if the print method below can be run without passing in values
     @Test
     void printPopulations1TestEmpty()
     {
@@ -234,6 +255,7 @@ public class AppTest
         app.printPopulations1(populations1);
     }
 
+    //test to check that the print method below will run with add null values
     @Test
     void printPopulations1TestContainsNull()
     {
