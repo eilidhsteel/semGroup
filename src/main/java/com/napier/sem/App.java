@@ -18,49 +18,46 @@ public class App {
             a.connect(args[0], Integer.parseInt(args[1]));
         }
 
+        //Print all country reports to the console
+        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country1)); //Country report 1 - requirement 1
+        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country2("Africa"))); //Country report 2 - requirement
+        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country3("Caribbean"))); //Country report 3 - requirement 3
+        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country4(10))); //Country report 4 - requirement 4
+        a.printPopulationCountry(a.getAllPopulationsCountry(sql.country5("Europe", 7))); //Country report 5 - requirement 5a.printPopulationCountry(a.getAllPopulationsCountry(sql.country6("Southern Europe", 15))); //Country report 6 - requirement 6
+
         // Print all city reports to the console
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city1)); // City Report 1 - requirement 7
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city2("Europe"))); // City Report 2 - requirement 8
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city3("Western Europe"))); // City Report 3 - requirement 9
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city4("United Kingdom"))); // City Report 4 - requirement 10
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city5("Scotland"))); // City Report 5 - requirement 11
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city6(10))); // City Report 6 - requirement 12
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city7("Europe", 10))); // City Report 7 - requirement 13
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city8("Western Europe", 10))); // City Report 8 - requirement 14
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city9("United Kingdom", 10))); // City Report 9 - requirement 15
-        //a.printPopulationCity(a.getAllPopulationsCity(sql.city10("Scotland", 10))); // City Report 10 - requirement 16
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city1)); // City Report 1 - requirement 7
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city2("Europe"))); // City Report 2 - requirement 8
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city3("Western Europe"))); // City Report 3 - requirement 9
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city4("United Kingdom"))); // City Report 4 - requirement 10
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city5("Scotland"))); // City Report 5 - requirement 11
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city6(10))); // City Report 6 - requirement 12
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city7("Europe", 10))); // City Report 7 - requirement 13
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city8("Western Europe", 10))); // City Report 8 - requirement 14
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city9("United Kingdom", 10))); // City Report 9 - requirement 15
+        a.printPopulationCity(a.getAllPopulationsCity(sql.city10("Scotland", 10))); // City Report 10 - requirement 16
 
         // Print all capital city reports to the console
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital1)); //Capital report 1 - requirement 17
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital2("Europe"))); // Capital report 2 - requirement 18
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital3("Western Europe"))); // Capital report 3 - requirement 19
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital4(5))); // Capital report 4 - requirement 20
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital5("Europe", 5))); // Capital report 5 - requirement 21
-        //a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6 - requirement 22
-
-        //Print all country reports to the console
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country1)); //Country report 1 - requirement 1
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country2("Africa"))); //Country report 2 - requirement
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country3("Caribbean"))); //Country report 3 - requirement 3
-        // a.printPopulationCountry(a.getAllPopulationsCountry(sql.country4(10))); //Country report 4 - requirement 4
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country5("Europe", 7))); //Country report 5 - requirement 5
-        //a.printPopulationCountry(a.getAllPopulationsCountry(sql.country6("Southern Europe", 15))); //Country report 6 - requirement 6
-
-        //Print Language report to console- requirement 32
-        //a.printLanguageSpeakers(a.getAllSpeakers());
-
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital1)); //Capital report 1 - requirement 17
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital2("Europe"))); // Capital report 2 - requirement 18
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital3("Western Europe"))); // Capital report 3 - requirement 19
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital4(5))); // Capital report 4 - requirement 20
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital5("Europe", 5))); // Capital report 5 - requirement 21
+        a.printPopulationCapital(a.getAllPopulationsCity(sql.capital6("Western Europe", 5))); // Capital report 6 - requirement 22
 
         //Print all population reports to the console
-        //a.printPopulations(a.getAllPopulations(sql.population1("Europe"))); //Population report 1 - requirement 23
-        //a.printPopulations(a.getAllPopulations(sql.population2("Western Europe"))); //Population report 2 - requirement 24
-       a.printPopulations(a.getAllPopulations(sql.population3("United Kingdom"))); //Population report 3 - requirement 25
-        //a.printPopulations1(a.getAllPopulations1(sql.population4)); //Population report 4 - requirement 26
-        //a.printPopulations1(a.getAllPopulations1(sql.population5("Europe"))); //Population report 5 - requirement 27
-        //a.printPopulations1(a.getAllPopulations1(sql.population6("Western Europe"))); //Population report 5 - requirement 28
-        //a.printPopulations1(a.getAllPopulations1(sql.population7("United Kingdom"))); // Population report 6 - requirement 29
-        //a.printPopulations1(a.getAllPopulations1(sql.population8("Scotland"))); //Population report 7 - requirement 30
-        //a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee"))); //Population report 8 - requirement 31
+        a.printPopulations(a.getAllPopulations(sql.population1("Europe"))); //Population report 1 - requirement 23
+        a.printPopulations(a.getAllPopulations(sql.population2("Western Europe"))); //Population report 2 - requirement 24
+        a.printPopulations(a.getAllPopulations(sql.population3("United Kingdom"))); //Population report 3 - requirement 25
+        a.printPopulations1(a.getAllPopulations1(sql.population4)); //Population report 4 - requirement 26
+        a.printPopulations1(a.getAllPopulations1(sql.population5("Europe"))); //Population report 5 - requirement 27
+        a.printPopulations1(a.getAllPopulations1(sql.population6("Western Europe"))); //Population report 5 - requirement 28
+        a.printPopulations1(a.getAllPopulations1(sql.population7("United Kingdom"))); // Population report 6 - requirement 29
+        a.printPopulations1(a.getAllPopulations1(sql.population8("Scotland"))); //Population report 7 - requirement 30
+        a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee"))); //Population report 8 - requirement 31
 
+        //Print Language report to console
+        a.printLanguageSpeakers(a.getAllSpeakers()); //Language report - requirement 32
 
         // Disconnect from database
         a.disconnect();
@@ -104,7 +101,6 @@ public class App {
         }
     }
 
-
     /**
      * Disconnect from the MySQL world database.
      */
@@ -119,6 +115,10 @@ public class App {
         }
     }
 
+    /**
+     * Query the database and return the record of the city which matches the string parameter given.
+     * @return a city object based on that record.
+     */
     public City getCity(String name) {
         try {
             // Create an SQL statement
@@ -163,8 +163,7 @@ public class App {
     }
 
     /**
-     * Gets all the current cities and populations.
-     *
+     * Gets all the current cities and populations
      * @return A list of all cities and populations based on SQL query provided for chosen report, or null if there is an error.
      */
     public ArrayList<City> getAllPopulationsCity(String strSelect) {
@@ -197,7 +196,6 @@ public class App {
 
     /**
      * Prints a list of cities.
-     *
      * @param cities The list of cities to print.
      */
     public void printPopulationCity(ArrayList<City> cities) {
@@ -222,7 +220,6 @@ public class App {
 
     /**
      * Prints a list of capital cities.
-     *
      * @param capitals The list of capital cities to print.
      */
     public void printPopulationCapital(ArrayList<City> capitals) {
@@ -245,6 +242,10 @@ public class App {
         System.out.println();
     }
 
+    /**
+     * Query the database and return the record of the country which matches the string parameter given.
+     * @return a country object based on that record.
+     */
     public Country getCountry(String name) {
         try {
             // Create an SQL statement
@@ -286,7 +287,7 @@ public class App {
         }
     }
 
-    public void displayCountry(Country country) {
+    /*public void displayCountry(Country country) {
         if (country != null) {
             System.out.println(
                     country.country_name + " "
@@ -294,13 +295,11 @@ public class App {
                             + country.region + "\n"
                             + "Population: " + country.population + "\n");
         }
-    }
+    }*/
 
     /**
      * Gets all the current countries and populations.
-     *
      * @return A list of all countries and populations, or null if there is an error.
-
      */
     public ArrayList<Country> getAllPopulationsCountry(String strSelect) {
         try {
@@ -335,7 +334,6 @@ public class App {
 
     /**
      * Prints a list of countries.
-     *
      * @param countries The list of countries to print.
      */
     public void printPopulationCountry(ArrayList<Country> countries) {
@@ -359,7 +357,6 @@ public class App {
 
     /**
      * Gets all langauges and the number of speakers that speak them.
-     *
      * @return A list of all languages and the population that speak them, or null if there is an error.
      */
     public ArrayList<Language> getAllSpeakers() {
@@ -399,7 +396,6 @@ public class App {
 
     /**
      * Prints a list of number of people who speak in a language .
-     *
      * @param languages The list of cities to print.
      */
     public void printLanguageSpeakers(ArrayList<Language> languages) {
@@ -423,9 +419,7 @@ public class App {
 
     /**
      * Gets all the current countries and populations.
-     *
      * @return A list of all countries and populations, or null if there is an error.
-
      */
     public ArrayList<Population> getAllPopulations(String strSelect) {
         try {
@@ -460,7 +454,6 @@ public class App {
 
     /**
      * Prints a list of populations.
-     *
      * @param populations The list of populations to print.
      */
     public void printPopulations(ArrayList<Population> populations) {
@@ -484,7 +477,6 @@ public class App {
 
     /**
      * Prints a list of populations.
-     *
      * @param populations1 The list of populations to print.
      */
     public void printPopulations1(ArrayList<Population> populations1) {
@@ -506,6 +498,10 @@ public class App {
         }
     }
 
+    /**
+     * Gets all the current countries and populations.
+     * @return A list of all countries and populations, or null if there is an error.
+     */
     public ArrayList<Population> getAllPopulations1(String strSelect) {
         try {
             // Create an SQL statement
