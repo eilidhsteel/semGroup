@@ -483,23 +483,23 @@ public class App {
     /**
      * Prints a list of populations.
      *
-     * @param populations The list of populations to print.
+     * @param populations1 The list of populations to print.
      */
-    public void printPopulations1(ArrayList<Population> populations) {
+    public void printPopulations1(ArrayList<Population> populations1) {
         // Check populations is not null
-        if (populations == null) {
+        if (populations1 == null) {
             System.out.println("No languages");
             return;
         }
         // Print header
         System.out.println(String.format("%-20s %-20s", "Name", "Total Population"));
         // Loop over all populations in the list
-        for (Population population : populations) {
-            if (population == null)
+        for (Population population1 : populations1) {
+            if (population1 == null)
                 continue;
             String population_string =
                     String.format("%-20s %-20s",
-                            population.name, population.totalPop);
+                            population1.name, population1.totalPop);
             System.out.println(population_string);
         }
     }
@@ -512,17 +512,17 @@ public class App {
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
             // Extract population information
-            ArrayList<Population> populations = new ArrayList<Population>();
+            ArrayList<Population> populations1 = new ArrayList<Population>();
             while (rset.next()) {
-                Population population = new Population();
-                population.name = rset.getString("Name");
-                population.totalPop = rset.getDouble("Total_Pop");
-                populations.add(population);
+                Population population1 = new Population();
+                population1.name = rset.getString("Name");
+                population1.totalPop = rset.getDouble("Total_Pop");
+                populations1.add(population1);
             }
-            if (populations.isEmpty()) {
+            if (populations1.isEmpty()) {
                 return null;
             } else {
-                return populations;
+                return populations1;
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());

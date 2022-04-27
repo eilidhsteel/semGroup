@@ -187,4 +187,70 @@ public class AppTest
         languages.add(language);
         app.printLanguageSpeakers(languages);
     }
+
+    @Test
+    void printPopulationsTestNull()
+    {
+        app.printPopulations(null);
+    }
+
+    @Test
+    void printPopulationsTestEmpty()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        app.printPopulations(populations);
+    }
+
+    @Test
+    void printPopulationsTestContainsNull()
+    {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        populations.add(null);
+        app.printPopulations(populations);
+    }
+
+    @Test
+    void printPopulations() {
+        ArrayList<Population> populations = new ArrayList<Population>();
+        Population population = new Population();
+        population.name = "AFRICA";
+        population.inCity = 1234;
+        population.outCity = 64;
+        population.totalPop = 1245;
+        populations.add(population);
+        app.printPopulations(populations);
+    }
+
+    @Test
+    void printPopulations1TestNull()
+    {
+        app.printPopulations1(null);
+    }
+
+    @Test
+    void printPopulations1TestEmpty()
+    {
+        ArrayList<Population> populations1 = new ArrayList<Population>();
+        app.printPopulations1(populations1);
+    }
+
+    @Test
+    void printPopulations1TestContainsNull()
+    {
+        ArrayList<Population> populations1 = new ArrayList<Population>();
+        populations1.add(null);
+        app.printPopulations1(populations1);
+    }
+
+    @Test
+    void printPopulations1() {
+        ArrayList<Population> populations1 = new ArrayList<Population>();
+        Population population1 = new Population();
+        population1.name = "AFRICA";
+        population1.inCity = 1234;
+        population1.outCity = 64;
+        population1.totalPop = 1245;
+        populations1.add(population1);
+        app.printPopulations1(populations1);
+    }
 }
