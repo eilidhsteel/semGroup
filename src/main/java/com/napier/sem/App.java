@@ -309,7 +309,7 @@ public class App {
             // Create string for SQL statement
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract country information
             ArrayList<Country> countries = new ArrayList<Country>();
             while (rset.next()) {
                 Country country = new Country();
@@ -339,7 +339,7 @@ public class App {
      * @param countries The list of countries to print.
      */
     public void printPopulationCountry(ArrayList<Country> countries) {
-        // Check cities is not null
+        // Check countries is not null
         if (countries == null) {
             System.out.println("No countries");
             return;
@@ -380,7 +380,7 @@ public class App {
                             + "LIMIT 5";
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract language information
             ArrayList<Language> languages = new ArrayList<Language>();
             while (rset.next()) {
                 Language language = new Language();
@@ -398,7 +398,7 @@ public class App {
     }
 
     /**
-     * Prints a list of cities.
+     * Prints a list of number of people who speak in a language .
      *
      * @param languages The list of cities to print.
      */
@@ -457,19 +457,19 @@ public class App {
     }
 
     /**
-     * Prints a list of cities.
+     * Prints a list of populations.
      *
-     * @param populations The list of cities to print.
+     * @param populations The list of populations to print.
      */
     public void printPopulations(ArrayList<Population> populations) {
-        // Check languages is not null
+        // Check populations is not null
         if (populations == null) {
             System.out.println("No languages");
             return;
         }
         // Print header
         System.out.println(String.format("%-20s %-45s %-45s %-20s ", "Name", "Total Population in cities", "Total Population not in cities", "Total Population"));
-        // Loop over all cities in the list
+        // Loop over all populations in the list
         for (Population population : populations) {
             if (population == null)
                 continue;
@@ -481,19 +481,19 @@ public class App {
     }
 
     /**
-     * Prints a list of cities.
+     * Prints a list of populations.
      *
-     * @param populations The list of cities to print.
+     * @param populations The list of populations to print.
      */
     public void printPopulations1(ArrayList<Population> populations) {
-        // Check languages is not null
+        // Check populations is not null
         if (populations == null) {
             System.out.println("No languages");
             return;
         }
         // Print header
         System.out.println(String.format("%-20s %-20s", "Name", "Total Population"));
-        // Loop over all cities in the list
+        // Loop over all populations in the list
         for (Population population : populations) {
             if (population == null)
                 continue;
@@ -511,7 +511,7 @@ public class App {
             // Create string for SQL statement
             // Execute SQL statement
             ResultSet rset = stmt.executeQuery(strSelect);
-            // Extract employee information
+            // Extract population information
             ArrayList<Population> populations = new ArrayList<Population>();
             while (rset.next()) {
                 Population population = new Population();

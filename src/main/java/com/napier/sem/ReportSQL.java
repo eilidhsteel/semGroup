@@ -304,7 +304,7 @@ public class ReportSQL {
     }
 
     /**
-     * Population 7: The population of a country in order.
+     * Population 7: The population of a country.
      */
     public String population7(String country){
         return "SELECT Name, SUM(population) AS Total_Pop "
