@@ -53,13 +53,13 @@ public class App {
         //Print all population reports to the console
         //a.printPopulations(a.getAllPopulations(sql.population1("Europe"))); //Population report 1 - requirement 23
         //a.printPopulations(a.getAllPopulations(sql.population2("Western Europe"))); //Population report 2 - requirement 24
-       //a.printPopulations(a.getAllPopulations(sql.population3("United Kingdom"))); //Population report 3 - requirement 25
+       a.printPopulations(a.getAllPopulations(sql.population3("United Kingdom"))); //Population report 3 - requirement 25
         //a.printPopulations1(a.getAllPopulations1(sql.population4)); //Population report 4 - requirement 26
         //a.printPopulations1(a.getAllPopulations1(sql.population5("Europe"))); //Population report 5 - requirement 27
         //a.printPopulations1(a.getAllPopulations1(sql.population6("Western Europe"))); //Population report 5 - requirement 28
         //a.printPopulations1(a.getAllPopulations1(sql.population7("United Kingdom"))); // Population report 6 - requirement 29
         //a.printPopulations1(a.getAllPopulations1(sql.population8("Scotland"))); //Population report 7 - requirement 30
-        a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee"))); //Population report 8 - requirement 31
+        //a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee"))); //Population report 8 - requirement 31
 
 
         // Disconnect from database
@@ -441,6 +441,8 @@ public class App {
                 population.name = rset.getString("Name");
                 population.inCity = rset.getInt("InCity");
                 population.outCity = rset.getInt("OutCity");
+                population.percentageIn = rset.getFloat("percentageIn");
+                population.percentageOut = rset.getFloat("percentageOut");
                 population.totalPop = rset.getDouble("Total_Pop");
                 populations.add(population);
             }
@@ -468,14 +470,14 @@ public class App {
             return;
         }
         // Print header
-        System.out.println(String.format("%-20s %-45s %-45s %-20s ", "Name", "Total Population in cities", "Total Population not in cities", "Total Population"));
+        System.out.println(String.format("%-12s %-28s %-32s %-20s %-25s %-20s", "Name", "Total Population in cities", "Total Population not in cities", "Percentage in cities", "Percentage not in cities","Total Population"));
         // Loop over all populations in the list
         for (Population population : populations) {
             if (population == null)
                 continue;
             String population_string =
-                    String.format("%-20s %-45s %-45s %-20s ",
-                            population.name, population.inCity, population.outCity, population.totalPop);
+                    String.format("%-12s %-28s %-32s %-20s %-25s %-20s ",
+                            population.name, population.inCity, population.outCity, population.percentageIn, population.percentageOut, population.totalPop);
             System.out.println(population_string);
         }
     }
