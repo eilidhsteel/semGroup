@@ -9,7 +9,7 @@
 [![codecov](https://codecov.io/gh/eilidhsteel/semGroup/branch/master/graph/badge.svg?token=8QLQN8HV4K)](https://codecov.io/gh/eilidhsteel/semGroup) <br />
 [![codecov](https://codecov.io/gh/eilidhsteel/semGroup/branch/develop/graph/badge.svg?token=8QLQN8HV4K)](https://codecov.io/gh/eilidhsteel/semGroup) <br />
 
-__ requirements of 32 have been implemented, which is ___%.
+__ requirements of 32 have been implemented, which is 100%.
 
 | ID | Name                                                                                                                                   | Met | Screenshot                                 |
 |----|----------------------------------------------------------------------------------------------------------------------------------------|-----|--------------------------------------------|
@@ -35,13 +35,13 @@ __ requirements of 32 have been implemented, which is ___%.
 | 20 | The top N populated capital cities in the world where N is provided by the user.                                                       | Yes | ![20.png](submission-screenshots/20.png)   |
 | 21 | The top N populated capital cities in a continent where N is provided by the user.                                                     | Yes | ![21.png](submission-screenshots/21.png)   |
 | 22 | The top N populated capital cities in a region where N is provided by the user.                                                        | Yes | ![22.png](submission-screenshots/22.png)   |
-| 23 | The population of people, people living in cities, and people not living in cities in each continent.                                  |     |                                            |
-| 24 | The population of people, people living in cities, and people not living in cities in each region.                                     |     |                                            |
-| 25 | The population of people, people living in cities, and people not living in cities in each country.                                    |     |                                            |
-| 26 | The population of the world.                                                                                                           |     |                                            |
-| 27 | The population of a continent.                                                                                                         |     |                                            |
-| 28 | The population of a region.                                                                                                            |     |                                            |
-| 29 | The population of a country.                                                                                                           |     |                                            |
-| 30 | The population of a district.                                                                                                          |     |                                            |
-| 31 | The population of a city.                                                                                                              |     |                                            |
+| 23 | The population of people, people living in cities, and people not living in cities in each continent.                                  | Yes | ![23.png](submission-screenshots/23.png)   |
+| 24 | The population of people, people living in cities, and people not living in cities in each region.                                     | Yes | ![24.png](submission-screenshots/24.png)   |
+| 25 | The population of people, people living in cities, and people not living in cities in each country.                                    | Yes | ![25.png](submission-screenshots/25.png)   |
+| 26 | The population of the world.                                                                                                           | Yes | ![26.png](submission-screenshots/26.png)   |
+| 27 | The population of a continent.                                                                                                         | Yes | ![27.png](submission-screenshots/27.png)   |
+| 28 | The population of a region.                                                                                                            | Yes | ![28.png](submission-screenshots/28.png)   |
+| 29 | The population of a country.                                                                                                           | Yes | ![29.png](submission-screenshots/29.png)   |
+| 30 | The population of a district.                                                                                                          | Yes | ![30.png](submission-screenshots/30.png)   |
+| 31 | The population of a city.                                                                                                              | Yes | ![31.png](submission-screenshots/31.png)   |
 | 32 | The number of people who speak the listed languages from greatest number to smallest, including the percentage of the world population | Yes | ![32.png](submission-screenshots/32.png)   |

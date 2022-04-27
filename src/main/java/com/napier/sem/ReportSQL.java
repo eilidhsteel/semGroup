@@ -242,9 +242,7 @@ public class ReportSQL {
      * Population 1: The population of people, people living in cities, and people not living in cities in each continent.
      */
     public String population1(String continent){
-        return "SELECT ct.Continent AS Name, SUM(ct.Population) AS Total_Pop, "
-                + "SUM(c.Population) AS InCity, "
-                + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
+        return "SELECT ct.Continent AS Name, SUM(ct.Population) AS Total_Pop, SUM(c.Population) AS InCity, SUM(ct.Population)  - SUM(c.Population) AS OutCity, ROUND((SUM(c.population)/(SELECT SUM(population) FROM country)*100), 2) AS percentageIn, ROUND(((SUM(ct.Population)  - SUM(c.Population))/(SELECT SUM(ct.population) FROM country AS ct)*100), 2) AS percentageOut  "
                 + "FROM country ct "
                 + "JOIN(SELECT c.CountryCode,SUM(c.population) AS Population "
                 + "FROM city AS c GROUP BY 1) c ON ct.Code = c.CountryCode "
@@ -257,9 +255,7 @@ public class ReportSQL {
      */
 
     public String population2(String region){
-        return "SELECT ct.Region AS Name, SUM(ct.Population) AS Total_Pop, "
-                + "SUM(c.Population) AS InCity, "
-                + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
+        return "SELECT ct.Region AS Name, SUM(ct.Population) AS Total_Pop, SUM(c.Population) AS InCity, SUM(ct.Population)  - SUM(c.Population) AS OutCity, ROUND((SUM(c.population)/(SELECT SUM(population) FROM country)*100), 2) AS percentageIn, ROUND(((SUM(ct.Population)  - SUM(c.Population))/(SELECT SUM(ct.population) FROM country AS ct)*100), 2) AS percentageOut "
                 + "FROM country ct "
                 + "JOIN(SELECT c.CountryCode,SUM(c.population) AS Population "
                 + "FROM city AS c GROUP BY 1) c ON ct.Code = c.CountryCode "
@@ -270,9 +266,7 @@ public class ReportSQL {
      * Population 3: The population of people, people living in cities, and people not living in cities in each country.
      */
     public String population3(String country){
-        return "SELECT ct.Name AS Name, SUM(ct.Population) AS Total_Pop, "
-                + "SUM(c.Population) AS InCity, "
-                + "SUM(ct.Population)  - SUM(c.Population) AS OutCity "
+        return "SELECT ct.Name AS Name, SUM(ct.Population) AS Total_Pop, SUM(c.Population) AS InCity, SUM(ct.Population)  - SUM(c.Population) AS OutCity, ROUND((SUM(c.population)/(SELECT SUM(population) FROM country)*100), 2) AS percentageIn, ROUND(((SUM(ct.Population)  - SUM(c.Population))/(SELECT SUM(ct.population) FROM country AS ct)*100), 2) AS percentageOut "
                 + "FROM country ct "
                 + "JOIN(SELECT c.CountryCode,SUM(c.population) AS Population "
                 + "FROM city AS c GROUP BY 1) c ON ct.Code = c.CountryCode "
@@ -305,7 +299,7 @@ public class ReportSQL {
     }
 
     /**
-     * Population 7: The population of a country in order.
+     * Population 7: The population of a country.
      */
     public String population7(String country){
         return "SELECT Name, SUM(population) AS Total_Pop "

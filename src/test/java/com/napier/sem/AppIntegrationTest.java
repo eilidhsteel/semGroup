@@ -284,64 +284,64 @@ public class AppIntegrationTest
     @Test
     void GetAllPopulationsTest1()
     {
-        ArrayList countries = app.getAllPopulationsCountry(sql.population1("Africa"));
-        assertEquals(countries.size(), 103000);
+        ArrayList populations = app.getAllPopulations(sql.population1("Africa"));
+        assertEquals(populations.size(), 1);
     }
 
     @Test
     void GetAllPopulationsTest2()
     {
-        ArrayList countries = app.getAllPopulationsCountry(sql.population2("Caribbean"));
-        assertEquals(countries.size(), 103000);
+        ArrayList populations = app.getAllPopulations(sql.population2("Caribbean"));
+        assertEquals(populations.size(), 1);
     }
 
     @Test
     void GetAllPopulationsTest3()
     {
-        ArrayList countries = app.getAllPopulationsCountry(sql.population3("Aruba"));
-        assertEquals(countries.size(), 103000);
+        ArrayList populations = app.getAllPopulations(sql.population3("Aruba"));
+        assertEquals(populations.size(), 1);
     }
 
     @Test
     void GetAllPopulationsTest4()
     {
-        ArrayList countries = app.getAllPopulationsCountry(sql.population4);
-        assertEquals(countries.size(), 103000);
+        ArrayList populations1 = app.getAllPopulations1(sql.population4);
+        assertEquals(populations1.size(), 1);
     }
 
     @Test
     void GetAllPopulationsTest5()
     {
-        ArrayList countries = app.getAllPopulationsCountry(sql.population5("Europe"));
-        assertEquals(countries.size(), 103000);
+        ArrayList populations1 = app.getAllPopulations1(sql.population5("Europe"));
+        assertEquals(populations1.size(), 1);
     }
 
     @Test
     void GetAllPopulationsTest6()
     {
-        ArrayList countries = app.getAllPopulationsCountry(sql.population6("Caribbean"));
-        assertEquals(countries.size(), 103000);
+        ArrayList populations1 = app.getAllPopulations1(sql.population6("Caribbean"));
+        assertEquals(populations1.size(), 1);
     }
 
     @Test
     void GetAllPopulationsTest7()
     {
-        ArrayList countries = app.getAllPopulationsCountry(sql.population7("UK"));
-        assertEquals(countries.size(), 103000);
+        ArrayList populations1 = app.getAllPopulations1(sql.population7("UK"));
+        assertEquals(populations1.size(), 1);
     }
 
     @Test
     void GetAllPopulationsTest8()
     {
-        ArrayList cities = app.getAllPopulationsCountry(sql.population8("Scotland"));
-        assertEquals(cities.size(), 146690);
+        ArrayList populations1 = app.getAllPopulations1(sql.population8("Scotland"));
+        assertEquals(populations1.size(), 1);
     }
 
     @Test
     void GetAllPopulationsTest9()
     {
-        ArrayList cities = app.getAllPopulationsCountry(sql.population9("Dundee"));
-        assertEquals(cities.size(), 146690);
+        ArrayList populations1 = app.getAllPopulations1(sql.population9("Dundee"));
+        assertEquals(populations1.size(), 1);
     }
 
     @Test

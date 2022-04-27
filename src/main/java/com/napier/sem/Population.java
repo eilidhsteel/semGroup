@@ -3,22 +3,33 @@ package com.napier.sem;
 public class Population
 {
     /**
-     * Country's code 3 char long
-     * primark key of the country table
+     *Name to be included in report country/region/district/city
      */
     public String name;
 
     /**
-     * Country's Name
+     * Value used to represent the number of people living within a city/cities
      */
     public int inCity;
 
     /**
-     * Continent which the country is within
+     * Value used to represent the percentage of people living within a city/cities
+     */
+    public float percentageIn;
+
+    /**
+     * Value used to represent the number of people not living within a city/cities
      */
     public int outCity;
 
+    /**
+     * Value used to represent the percentage of people not living within a city/cities
+     */
+    public float percentageOut;
 
+    /**
+     * Value used to represent the total population
+     */
     public double totalPop;
 
 }
