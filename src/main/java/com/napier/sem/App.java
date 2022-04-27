@@ -58,7 +58,7 @@ public class App {
         //a.printPopulations1(a.getAllPopulations1(sql.population6("Western Europe")));
         //a.printPopulations1(a.getAllPopulations1(sql.population7("United Kingdom")));
         //a.printPopulations1(a.getAllPopulations1(sql.population8("Scotland")));
-        a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee")));
+        //a.printPopulations1(a.getAllPopulations1(sql.population9("Dundee")));
 
 
         // Disconnect from database
