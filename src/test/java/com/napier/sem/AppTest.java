@@ -168,6 +168,29 @@ public class AppTest
         app.printPopulationCountry(countries);
     }
 
+    //Tests that displayCountry method prints country details to console
+    @Test
+    void displayCountry()
+    {
+        Country country = new Country();
+        country.country_name = "UK";
+        country.country_Code = "UKA";
+        country.continent = "Europe";
+        country.region = "Europe";
+        country.surface_area = 1234;
+        country.indep_Year = 1234;
+        country.population = 1234;
+        country.life_Expectancy= 12;
+        country.GNP = 1234;
+        country.GNP_old = 1234;
+        country.local_Name = "UK";
+        country.government_form = "abc";
+        country.head_of_state = "John Smith";
+        //country.capital = NULL;
+        country.country_code2 = "ABC";
+        app.displayCountry(country);
+    }
+
     //passing a null value into to printlanuagespeaker method
     @Test
     void printSpeakersTestNull()
