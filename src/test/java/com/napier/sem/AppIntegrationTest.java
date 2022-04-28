@@ -359,4 +359,13 @@ public class AppIntegrationTest
         ArrayList languages = app.getAllSpeakers();
         assertEquals(languages.size(), 5);
     }
+
+    /**
+     * Checks that we can disconnect from the database
+     */
+    @Test
+    void testDisconnect()
+    {
+        app.disconnect();
+    }
 }
