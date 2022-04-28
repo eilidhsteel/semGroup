@@ -24,6 +24,15 @@ public class AppIntegrationTest
     }
 
     /**
+     * Checks that connection can be made to the database
+     */
+    @Test
+    void testConnect()
+    {
+        app.connect("localhost:33060", 30000);
+    }
+
+    /**
      * Finds city Townsville checks actual output matches
      */
     @Test
