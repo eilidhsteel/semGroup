@@ -287,7 +287,7 @@ public class App {
         }
     }
 
-    /*public void displayCountry(Country country) {
+    public void displayCountry(Country country) {
         if (country != null) {
             System.out.println(
                     country.country_name + " "
@@ -295,7 +295,7 @@ public class App {
                             + country.region + "\n"
                             + "Population: " + country.population + "\n");
         }
-    }*/
+    }
 
     /**
      * Gets all the current countries and populations.
