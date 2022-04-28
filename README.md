@@ -9,7 +9,7 @@
 [![codecov](https://codecov.io/gh/eilidhsteel/semGroup/branch/master/graph/badge.svg?token=8QLQN8HV4K)](https://codecov.io/gh/eilidhsteel/semGroup) <br />
 [![codecov](https://codecov.io/gh/eilidhsteel/semGroup/branch/develop/graph/badge.svg?token=8QLQN8HV4K)](https://codecov.io/gh/eilidhsteel/semGroup) <br />
 
-__ requirements of 32 have been implemented, which is 100%.
+32 requirements of 32 have been implemented, which is 100%.
 
 | ID | Name                                                                                                                                   | Met | Screenshot                                 |
 |----|----------------------------------------------------------------------------------------------------------------------------------------|-----|--------------------------------------------|
